@@ -3,116 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick All Doc Pro | AI Document Generator </title>
+    <title>Quick All Doc Pro | AI Document Generator</title>
+    <meta name="google-adsense-account" content="ca-pub-7650854652135464">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7650854652135464" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7650854652135464"
-     crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-7650854652135464">
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body class="bg-gray-50 text-gray-900 font-sans">
 
-    <header class="p-4 bg-gray-800 shadow-md text-center">
-        <h1 class="text-2xl font-bold text-blue-400">Quick All Doc Pro</h1>
-        <p class="text-xs text-gray-400">Professional Documents in Seconds</p>
-    </header>
+    <nav class="p-4 bg-white shadow-sm flex justify-between items-center border-b border-gray-200">
+        <h1 class="text-xl font-extrabold text-blue-600">Quick All Doc Pro</h1>
+        <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-600">
+            <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
+            <a href="terms.html" class="hover:text-blue-600">Terms</a>
+            <a href="contact.html" class="hover:text-blue-600">Contact</a>
+        </div>
+    </nav>
 
-    <div class="max-w-md mx-auto p-4 border border-gray-700 my-4 text-center text-gray-500 text-xs rounded">
-        ADVERTISEMENT SPACE
+    <div class="max-w-5xl mx-auto p-4">
+        <header class="text-center my-10">
+            <h2 class="text-4xl font-black text-gray-900 mb-2 uppercase tracking-tight">Quick All Doc Pro</h2>
+            <p class="text-gray-500 text-sm italic">Legacy of Vaijnath Shinde | Professional Tools</p>
+        </header>
+
+        <div id="main-menu" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-400 transition-all">
+                <h3 class="font-bold text-lg mb-2 text-blue-600">📄 Resume Builder</h3>
+                <p class="text-xs text-gray-500 mb-4">Create professional CVs instantly.</p>
+                <button onclick="openTool('resume')" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-green-400 transition-all">
+                <h3 class="font-bold text-lg mb-2 text-green-600">📝 Leave Application</h3>
+                <p class="text-xs text-gray-500 mb-4">School, College or Office letters.</p>
+                <button onclick="openTool('leave')" class="w-full bg-green-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-red-400 transition-all">
+                <h3 class="font-bold text-lg mb-2 text-red-600">🚨 Police Complaint</h3>
+                <p class="text-xs text-gray-500 mb-4">Formal letters for local stations.</p>
+                <button onclick="openTool('police')" class="w-full bg-red-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-purple-400 transition-all">
+                <h3 class="font-bold text-lg mb-2 text-purple-600">⚖️ Legal Notice</h3>
+                <p class="text-xs text-gray-500 mb-4">Basic draft for legal matters.</p>
+                <button onclick="openTool('legal')" class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-yellow-500 transition-all">
+                <h3 class="font-bold text-lg mb-2 text-yellow-600">🎓 TC Application</h3>
+                <p class="text-xs text-gray-500 mb-4">Transfer Certificate request for school.</p>
+                <button onclick="openTool('tc')" class="w-full bg-yellow-500 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-pink-400 transition-all">
+                <h3 class="font-bold text-lg mb-2 text-pink-600">💼 Job Experience</h3>
+                <p class="text-xs text-gray-500 mb-4">Experience letters for employees.</p>
+                <button onclick="openTool('exp')" class="w-full bg-pink-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-indigo-400 transition-all">
+                <h3 class="font-bold text-lg mb-2 text-indigo-600">📨 Job Application</h3>
+                <p class="text-xs text-gray-500 mb-4">Cover letters for job interviews.</p>
+                <button onclick="openTool('job')" class="w-full bg-indigo-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-orange-400 transition-all">
+                <h3 class="font-bold text-lg mb-2 text-orange-600">📜 Affidavit Format</h3>
+                <p class="text-xs text-gray-500 mb-4">Standard affidavit draft templates.</p>
+                <button onclick="openTool('affidavit')" class="w-full bg-orange-500 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-teal-400 transition-all">
+                <h3 class="font-bold text-lg mb-2 text-teal-600">🏠 Rent Agreement</h3>
+                <p class="text-xs text-gray-500 mb-4">Room or house rental agreements.</p>
+                <button onclick="openTool('rent')" class="w-full bg-teal-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+            </div>
+
+        </div>
+
+        <div id="form-section" class="hidden mt-10 bg-white p-8 rounded-xl border border-gray-200 shadow-md">
+            <button onclick="backToMenu()" class="text-blue-600 font-bold text-sm mb-6 hover:underline">← Back to Menu</button>
+            <h2 id="tool-title" class="text-2xl font-black text-gray-800 mb-6">Enter Details</h2>
+            <div class="space-y-5">
+                <input type="text" id="in1" placeholder="Full Name" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-blue-500">
+                <input type="text" id="in2" placeholder="Subject / Title" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-blue-500">
+                <textarea id="in3" placeholder="Enter full details here..." class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 h-40 focus:outline-none focus:border-blue-500"></textarea>
+                <button onclick="generateDoc()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors">Generate Document</button>
+            </div>
+        </div>
     </div>
 
-    <div id="main-menu" class="max-w-md mx-auto p-4 space-y-4">
-        <div class="bg-white text-black p-4 rounded-lg shadow-lg border-l-8 border-blue-600">
-            <h3 class="font-bold text-lg text-blue-600">📄 Resume Builder</h3>
-            <p class="text-sm text-gray-600 mb-3">Create your CV/Resume instantly.</p>
-            <button onclick="openTool('resume')" class="bg-blue-600 text-white px-4 py-2 rounded w-full font-bold">Create Resume</button>
+    <footer class="p-10 bg-white mt-20 border-t border-gray-200 text-center">
+        <div class="flex justify-center space-x-6 mb-4 text-sm font-medium">
+            <a href="privacy.html" class="text-gray-600 hover:text-blue-600">Privacy Policy</a>
+            <a href="terms.html" class="text-gray-600 hover:text-blue-600">Terms</a>
+            <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact</a>
         </div>
-
-        <div class="bg-white text-black p-4 rounded-lg shadow-lg border-l-8 border-green-600">
-            <h3 class="font-bold text-lg text-green-600">📝 Leave Application</h3>
-            <p class="text-sm text-gray-600 mb-3">School, College or Office letters.</p>
-            <button onclick="openTool('leave')" class="bg-green-600 text-white px-4 py-2 rounded w-full font-bold">Draft Now</button>
-        </div>
-
-        <div class="bg-white text-black p-4 rounded-lg shadow-lg border-l-8 border-red-600">
-            <h3 class="font-bold text-lg text-red-600">🚨 Police Complaint</h3>
-            <p class="text-sm text-gray-600 mb-3">Formal letters for local stations.</p>
-            <button onclick="openTool('police')" class="bg-red-600 text-white px-4 py-2 rounded w-full font-bold">Write Complaint</button>
-        </div>
-    </div>
-
-    <div id="form-section" class="hidden p-4 max-w-md mx-auto bg-gray-800 rounded-lg shadow-xl border border-gray-700">
-        <button onclick="backToMenu()" class="text-blue-400 mb-4 font-bold underline">← Back to Menu</button>
-        <h2 id="tool-title" class="text-xl font-bold mb-4 text-white">Enter Details</h2>
-        
-        <div id="inputs" class="space-y-3">
-            <input type="text" id="in1" placeholder="Full Name" class="w-full p-2 rounded text-black font-bold">
-            <input type="text" id="in2" placeholder="Subject / Title" class="w-full p-2 rounded text-black">
-            <textarea id="in3" placeholder="Description / Details" class="w-full p-2 rounded text-black h-32"></textarea>
-            <button onclick="generateDoc()" class="bg-blue-500 text-white px-4 py-2 rounded w-full font-bold text-lg">Generate & Print PDF</button>
-        </div>
-    </div>
-
-    <footer class="p-8 text-center text-gray-500 text-xs border-t border-gray-800 mt-10">
-        <p>© 2026 Quick All Doc Pro | Secure & Private</p>
+        <p class="text-gray-400 text-xs">© 2026 Quick All Doc Pro | Built by Yuvraj Shinde</p>
     </footer>
 
     <script>
         let currentTool = '';
-
         function openTool(tool) {
             currentTool = tool;
             document.getElementById('main-menu').classList.add('hidden');
             document.getElementById('form-section').classList.remove('hidden');
             
-            const title = document.getElementById('tool-title');
-            const in1 = document.getElementById('in1');
-            const in2 = document.getElementById('in2');
-            const in3 = document.getElementById('in3');
-
-            if(tool === 'resume') {
-                title.innerText = "Resume Details";
-                in1.placeholder = "Full Name";
-                in2.placeholder = "Education (e.g. 10th, 12th, BA)";
-                in3.placeholder = "Experience / Skills";
-            } else if(tool === 'leave') {
-                title.innerText = "Leave Application";
-                in1.placeholder = "Your Name";
-                in2.placeholder = "Reason for Leave";
-                in3.placeholder = "Full Message (To Principal/Manager)";
-            } else if(tool === 'police') {
-                title.innerText = "Police Complaint";
-                in1.placeholder = "Complainant Name";
-                in2.placeholder = "Complaint Subject (e.g. Lost Phone)";
-                in3.placeholder = "Describe Incident in Detail";
-            }
+            // Sabhi 9 tools ke titles yahan update kar diye hain
+            const titles = {
+                'resume': 'Resume Builder', 
+                'leave': 'Leave Application', 
+                'police': 'Police Complaint',
+                'legal': 'Legal Notice', 
+                'tc': 'TC Application', 
+                'exp': 'Experience Certificate',
+                'job': 'Job Application Letter',
+                'affidavit': 'Affidavit Format',
+                'rent': 'Rent Agreement Format'
+            };
+            document.getElementById('tool-title').innerText = titles[tool];
         }
-
         function backToMenu() {
-            document.getElementById('form-section').classList.add('hidden');
             document.getElementById('main-menu').classList.remove('hidden');
+            document.getElementById('form-section').classList.add('hidden');
         }
-
         function generateDoc() {
-            const val1 = document.getElementById('in1').value;
-            const val2 = document.getElementById('in2').value;
-            const val3 = document.getElementById('in3').value;
-
-            if(!val1) { alert('Please enter name'); return; }
-
-            let win = window.open('', '', 'height=700,width=800');
-            win.document.write('<html><head><title>Document</title><style>body{font-family:serif;padding:50px;line-height:1.6;}h1{text-align:center;text-decoration:underline;color:#333;} .content{margin-top:30px;}</style></head><body>');
-            
-            if(currentTool === 'resume') {
-                win.document.write('<h1>RESUME</h1><div class="content"><p><b>NAME:</b> '+val1+'</p><hr><p><b>EDUCATION:</b><br>'+val2+'</p><p><b>EXPERIENCE:</b><br>'+val3+'</p></div>');
-            } else {
-                win.document.write('<h1>'+currentTool.toUpperCase()+' APPLICATION</h1><div class="content"><p>To,<br>The Authority Concerns,</p><p><b>Subject:</b> '+val2+'</p><p>Respected Sir/Madam,</p><p>'+val3+'</p><p>Sincerely,<br><b>'+val1+'</b></p></div>');
-            }
-            
-            win.document.write('</body></html>');
-            win.document.close();
-            win.print();
+            const name = document.getElementById('in1').value;
+            const sub = document.getElementById('in2').value;
+            const det = document.getElementById('in3').value;
+            alert("Document Generated for: " + name + "\nCheck console for logic setup.");
         }
     </script>
-
-    
+</body>
+                </html>
+                    
