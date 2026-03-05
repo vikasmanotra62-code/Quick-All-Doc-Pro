@@ -119,37 +119,76 @@
     </footer>
 
     <script>
-        let currentTool = '';
-        function openTool(tool) {
-            currentTool = tool;
-            document.getElementById('main-menu').classList.add('hidden');
-            document.getElementById('form-section').classList.remove('hidden');
-            
-            // Sabhi 9 tools ke titles yahan update kar diye hain
-            const titles = {
-                'resume': 'Resume Builder', 
-                'leave': 'Leave Application', 
-                'police': 'Police Complaint',
-                'legal': 'Legal Notice', 
-                'tc': 'TC Application', 
-                'exp': 'Experience Certificate',
-                'job': 'Job Application Letter',
-                'affidavit': 'Affidavit Format',
-                'rent': 'Rent Agreement Format'
-            };
-            document.getElementById('tool-title').innerText = titles[tool];
-        }
-        function backToMenu() {
-            document.getElementById('main-menu').classList.remove('hidden');
-            document.getElementById('form-section').classList.add('hidden');
-        }
-        function generateDoc() {
-            const name = document.getElementById('in1').value;
-            const sub = document.getElementById('in2').value;
-            const det = document.getElementById('in3').value;
-            alert("Document Generated for: " + name + "\nCheck console for logic setup.");
-        }
+    let currentTool = '';
+    
+    function openTool(tool) {
+        currentTool = tool;
+        document.getElementById('main-menu').classList.add('hidden');
+        document.getElementById('form-section').classList.remove('hidden');
+        const titles = {
+            'resume': 'Resume Builder',
+            'leave': 'Leave Application',
+            'police': 'Police Complaint',
+            'legal': 'Legal Notice',
+            'tc': 'TC Application',
+            'exp': 'Experience Certificate',
+            'job': 'Job Application Letter',
+            'affidavit': 'Affidavit Format',
+            'rent': 'Rent Agreement Format'
+        };
+        document.getElementById('tool-title').innerText = titles[tool];
+    }
+
+    function backToMenu() {
+        document.getElementById('main-menu').classList.remove('hidden');
+        document.getElementById('form-section').classList.add('hidden');
+    }
+
+    function generateDoc() {
+        const name = document.getElementById('in1').value;
+        const sub = document.getElementById('in2').value;
+        const det = document.getElementById('in3').value;
+        alert("Document Generated for: " + name);
+    }
+
+    function updateLanguage() {
+        const lang = document.getElementById('langSelect').value;
+        const translations = {
+            en: {
+                mainTitle: "QUICK ALL DOC PRO",
+                tagline: "Legacy of Vaijnath Shinde | Professional Tools",
+                tools: ["Resume Builder", "Leave Application", "Police Complaint", "Legal Notice", "TC Application", "Job Experience", "Job Application", "Affidavit Format", "Rent Agreement"],
+                btn: "Open Tool"
+            },
+            hi: {
+                mainTitle: "त्वरित दस्तावेज़ प्रो",
+                tagline: "बैजनाथ शिंदे की विरासत | पेशेवर उपकरण",
+                tools: ["रिज्यूमे बिल्डर", "छुट्टी का आवेदन", "पुलिस शिकायत", "कानूनी नोटिस", "टीसी आवेदन", "कार्य अनुभव", "नौकरी का आवेदन", "शपथ पत्र प्रारूप", "किराया समझौता"],
+                btn: "टूल खोलें"
+            },
+            mr: {
+                mainTitle: "त्वरित दस्तऐवज प्रो",
+                tagline: "वैजनाथ शिंदे यांचा वारसा | व्यावसायिक साधने",
+                tools: ["रेझ्युमे बिल्डर", "रजेचा अर्ज", "पोलीस तक्रार", "कायदेशीर नोटीस", "टीसी अर्ज", "कामाचा अनुभव", "नोकरीसाठी अर्ज", "प्रतिज्ञापत्र नमुना", "भाडे करार"],
+                btn: "टूल उघडा"
+            }
+        };
+
+        document.querySelector('h2').innerText = translations[lang].mainTitle;
+        document.querySelector('p.italic').innerText = translations[lang].tagline;
+        
+        const headings = document.querySelectorAll('h3');
+        headings.forEach((h3, index) => {
+            if(translations[lang].tools[index]) {
+                h3.innerHTML = h3.innerHTML.split('</i>')[0] + '</i> ' + translations[lang].tools[index];
+            }
+        });
+
+        const buttons = document.querySelectorAll('#main-menu button');
+        buttons.forEach(btn => btn.innerText = translations[lang].btn);
+    }
     </script>
+    
 </body>
                 </html>
                     
