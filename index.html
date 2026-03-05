@@ -1,59 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick All Doc Pro</title>
+    <title>Quick All Doc Pro | AI Document Generator</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7650854652135464" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-white font-sans">
-    <div id="main-menu" class="p-4">
-        <h1 class="text-2xl font-bold text-center mb-6 text-blue-400">Quick All Doc Pro</h1>
-        <div class="max-w-md mx-auto space-y-4">
-            <div class="bg-white text-black p-4 rounded-lg shadow-lg border-l-8 border-blue-600">
-                <h3 class="font-bold text-lg text-blue-600">📄 Resume Builder</h3>
-                <p class="text-sm text-gray-600 mb-4">Build your professional CV in minutes.</p>
-                <button onclick="showForm()" class="bg-blue-600 text-white px-4 py-2 rounded w-full font-bold">Create Resume</button>
-            </div>
-            <p class="text-center text-gray-500 text-xs mt-4 italic">More tools coming soon!</p>
+
+    <header class="p-4 bg-gray-800 shadow-md text-center">
+        <h1 class="text-2xl font-bold text-blue-400">Quick All Doc Pro</h1>
+        <p class="text-xs text-gray-400">Professional Documents in Seconds</p>
+    </header>
+
+    <div class="max-w-md mx-auto p-4 border border-gray-700 my-4 text-center text-gray-500 text-xs rounded">
+        ADVERTISEMENT SPACE
+    </div>
+
+    <div id="main-menu" class="max-w-md mx-auto p-4 space-y-4">
+        <div class="bg-white text-black p-4 rounded-lg shadow-lg border-l-8 border-blue-600">
+            <h3 class="font-bold text-lg text-blue-600">📄 Resume Builder</h3>
+            <p class="text-sm text-gray-600 mb-3">Create your CV/Resume instantly.</p>
+            <button onclick="openTool('resume')" class="bg-blue-600 text-white px-4 py-2 rounded w-full font-bold">Create Resume</button>
+        </div>
+
+        <div class="bg-white text-black p-4 rounded-lg shadow-lg border-l-8 border-green-600">
+            <h3 class="font-bold text-lg text-green-600">📝 Leave Application</h3>
+            <p class="text-sm text-gray-600 mb-3">School, College or Office letters.</p>
+            <button onclick="openTool('leave')" class="bg-green-600 text-white px-4 py-2 rounded w-full font-bold">Draft Now</button>
+        </div>
+
+        <div class="bg-white text-black p-4 rounded-lg shadow-lg border-l-8 border-red-600">
+            <h3 class="font-bold text-lg text-red-600">🚨 Police Complaint</h3>
+            <p class="text-sm text-gray-600 mb-3">Formal letters for local stations.</p>
+            <button onclick="openTool('police')" class="bg-red-600 text-white px-4 py-2 rounded w-full font-bold">Write Complaint</button>
         </div>
     </div>
 
-    <div id="form-section" class="hidden p-4 max-w-md mx-auto">
-        <button onclick="showMenu()" class="text-blue-400 mb-4 font-bold underline">← Back to Menu</button>
-        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
-            <h2 class="text-xl font-bold mb-4">Enter Resume Details</h2>
-            <div class="space-y-3">
-                <input type="text" id="resName" placeholder="Your Full Name" class="w-full p-2 rounded text-black font-bold">
-                <input type="text" id="resEdu" placeholder="Education (e.g. 12th, Degree)" class="w-full p-2 rounded text-black">
-                <textarea id="resExp" placeholder="Work Experience / Skills" class="w-full p-2 rounded text-black h-24"></textarea>
-                <button onclick="printResume()" class="bg-green-600 text-white px-4 py-2 rounded w-full font-bold">Generate & Save PDF</button>
-            </div>
+    <div id="form-section" class="hidden p-4 max-w-md mx-auto bg-gray-800 rounded-lg shadow-xl border border-gray-700">
+        <button onclick="backToMenu()" class="text-blue-400 mb-4 font-bold underline">← Back to Menu</button>
+        <h2 id="tool-title" class="text-xl font-bold mb-4 text-white">Enter Details</h2>
+        
+        <div id="inputs" class="space-y-3">
+            <input type="text" id="in1" placeholder="Full Name" class="w-full p-2 rounded text-black font-bold">
+            <input type="text" id="in2" placeholder="Subject / Title" class="w-full p-2 rounded text-black">
+            <textarea id="in3" placeholder="Description / Details" class="w-full p-2 rounded text-black h-32"></textarea>
+            <button onclick="generateDoc()" class="bg-blue-500 text-white px-4 py-2 rounded w-full font-bold text-lg">Generate & Print PDF</button>
         </div>
     </div>
+
+    <footer class="p-8 text-center text-gray-500 text-xs border-t border-gray-800 mt-10">
+        <p>© 2026 Quick All Doc Pro | Secure & Private</p>
+    </footer>
 
     <script>
-        function showForm() {
+        let currentTool = '';
+
+        function openTool(tool) {
+            currentTool = tool;
             document.getElementById('main-menu').classList.add('hidden');
             document.getElementById('form-section').classList.remove('hidden');
+            
+            const title = document.getElementById('tool-title');
+            const in1 = document.getElementById('in1');
+            const in2 = document.getElementById('in2');
+            const in3 = document.getElementById('in3');
+
+            if(tool === 'resume') {
+                title.innerText = "Resume Details";
+                in1.placeholder = "Full Name";
+                in2.placeholder = "Education (e.g. 10th, 12th, BA)";
+                in3.placeholder = "Experience / Skills";
+            } else if(tool === 'leave') {
+                title.innerText = "Leave Application";
+                in1.placeholder = "Your Name";
+                in2.placeholder = "Reason for Leave";
+                in3.placeholder = "Full Message (To Principal/Manager)";
+            } else if(tool === 'police') {
+                title.innerText = "Police Complaint";
+                in1.placeholder = "Complainant Name";
+                in2.placeholder = "Complaint Subject (e.g. Lost Phone)";
+                in3.placeholder = "Describe Incident in Detail";
+            }
         }
-        function showMenu() {
+
+        function backToMenu() {
             document.getElementById('form-section').classList.add('hidden');
             document.getElementById('main-menu').classList.remove('hidden');
         }
-        function printResume() {
-            let n = document.getElementById('resName').value;
-            let e = document.getElementById('resEdu').value;
-            let ex = document.getElementById('resExp').value;
-            if(!n) { alert('Please enter name'); return; }
-            let pr = window.open('', '', 'height=600,width=800');
-            pr.document.write('<html><head><title>Resume</title><style>body{font-family:sans-serif;padding:40px;}h1{color:#2563eb;border-bottom:2px solid #2563eb;}h3{margin-top:20px;}</style></head><body>');
-            pr.document.write('<h1>RESUME</h1><h3>Personal Information</h3><p><b>Name:</b> '+n+'</p>');
-            pr.document.write('<h3>Education</h3><p>'+e+'</p><h3>Experience/Skills</h3><p>'+ex+'</p>');
-            pr.document.write('</body></html>');
-            pr.document.close();
-            pr.print();
+
+        function generateDoc() {
+            const val1 = document.getElementById('in1').value;
+            const val2 = document.getElementById('in2').value;
+            const val3 = document.getElementById('in3').value;
+
+            if(!val1) { alert('Please enter name'); return; }
+
+            let win = window.open('', '', 'height=700,width=800');
+            win.document.write('<html><head><title>Document</title><style>body{font-family:serif;padding:50px;line-height:1.6;}h1{text-align:center;text-decoration:underline;color:#333;} .content{margin-top:30px;}</style></head><body>');
+            
+            if(currentTool === 'resume') {
+                win.document.write('<h1>RESUME</h1><div class="content"><p><b>NAME:</b> '+val1+'</p><hr><p><b>EDUCATION:</b><br>'+val2+'</p><p><b>EXPERIENCE:</b><br>'+val3+'</p></div>');
+            } else {
+                win.document.write('<h1>'+currentTool.toUpperCase()+' APPLICATION</h1><div class="content"><p>To,<br>The Authority Concerns,</p><p><b>Subject:</b> '+val2+'</p><p>Respected Sir/Madam,</p><p>'+val3+'</p><p>Sincerely,<br><b>'+val1+'</b></p></div>');
+            }
+            
+            win.document.write('</body></html>');
+            win.document.close();
+            win.print();
         }
     </script>
 </body>
