@@ -1,5 +1,4 @@
-{
-  "name": "Quick All Doc Pro",
+name": "Quick All Doc Pro",
   "short_name": "DocPro",
   "start_url": "index.html",
   "display": "standalone",
