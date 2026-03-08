@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quick All Doc Pro | AI Document Generator</title>
+    <meta name="description" content="Quick All Doc Pro: Online Resume builder and Leave application generator in Hindi and Marathi.">
+    <meta name="google-site-verification" content="5_-qYd9IDpCL9oJlTMNBHlzwjm6uZVYLmWHr2A6rMFM" />
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CLSPYD6XKR"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -15,73 +18,80 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7650854652135464" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="manifest" href="manifest.json">
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
+
     <nav class="p-4 bg-white shadow-sm flex justify-between items-center border-b border-gray-200">
         <div class="flex items-center space-x-3">
             <img src="Icon.png" alt="Logo" class="h-10 w-10 rounded shadow-sm">
             <h1 class="text-xl font-extrabold text-blue-600">Quick All Doc Pro</h1>
         </div>
-        <select id="langSelect" onchange="updateLanguage()" class="bg-gray-100 text-sm font-bold p-2 rounded border outline-none cursor-pointer">
-            <option value="en">English</option>
-            <option value="hi">Hindi (हिंदी)</option>
-            <option value="mr">Marathi (मराठी)</option>
-        </select>
+        <div class="flex items-center ml-auto mr-4">
+            <select id="langSelect" onchange="updateLanguage()" class="bg-gray-100 text-sm font-bold p-2 rounded border border-gray-300 outline-none cursor-pointer">
+                <option value="en">English</option>
+                <option value="hi">Hindi (हिंदी)</option>
+                <option value="mr">Marathi (मराठी)</option>
+            </select>
+        </div>
     </nav>
 
     <div class="max-w-5xl mx-auto p-4">
         <header class="text-center my-10">
-            <h2 id="main-heading" class="text-4xl font-black text-gray-900 mb-2 uppercase tracking-tight">Quick All Doc Pro</h2>
-            <p id="tagline" class="text-gray-500 text-sm italic">Legacy of Vaijnath Shinde | Professional Tools</p>
+            <h2 id="main-h2" class="text-4xl font-black text-gray-900 mb-2 uppercase tracking-tight">Quick All Doc Pro</h2>
+            <p id="tagline-p" class="text-gray-500 text-sm italic">Legacy of Vaijnath Shinde | Professional Tools</p>
         </header>
 
         <div id="main-menu" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white p-6 rounded-xl border shadow-sm hover:border-blue-400 transition-all">
-                <h3 class="font-bold text-lg mb-2 text-blue-600 tool-name">📄 Resume Builder</h3>
-                <button onclick="openTool('resume')" class="open-btn w-full bg-blue-600 text-white py-2 rounded-lg font-bold">Open Tool</button>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                <h3 class="font-bold text-lg mb-2 text-blue-600 tool-h">📄 Resume Builder</h3>
+                <button onclick="openTool('resume')" class="open-btn w-full bg-blue-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
             </div>
-            <div class="bg-white p-6 rounded-xl border shadow-sm hover:border-green-400 transition-all">
-                <h3 class="font-bold text-lg mb-2 text-green-600 tool-name">📝 Leave Application</h3>
-                <button onclick="openTool('leave')" class="open-btn w-full bg-green-600 text-white py-2 rounded-lg font-bold">Open Tool</button>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                <h3 class="font-bold text-lg mb-2 text-green-600 tool-h">📝 Leave Application</h3>
+                <button onclick="openTool('leave')" class="open-btn w-full bg-green-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
             </div>
-            <div class="bg-white p-6 rounded-xl border shadow-sm hover:border-red-400 transition-all">
-                <h3 class="font-bold text-lg mb-2 text-red-600 tool-name">🚨 Police Complaint</h3>
-                <button onclick="openTool('police')" class="open-btn w-full bg-red-600 text-white py-2 rounded-lg font-bold">Open Tool</button>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                <h3 class="font-bold text-lg mb-2 text-red-600 tool-h">🚨 Police Complaint</h3>
+                <button onclick="openTool('police')" class="open-btn w-full bg-red-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
             </div>
-            <div class="bg-white p-6 rounded-xl border shadow-sm hover:border-purple-400 transition-all">
-                <h3 class="font-bold text-lg mb-2 text-purple-600 tool-name">⚖️ Legal Notice</h3>
-                <button onclick="openTool('legal')" class="open-btn w-full bg-purple-600 text-white py-2 rounded-lg font-bold">Open Tool</button>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                <h3 class="font-bold text-lg mb-2 text-purple-600 tool-h">⚖️ Legal Notice</h3>
+                <button onclick="openTool('legal')" class="open-btn w-full bg-purple-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
             </div>
-            <div class="bg-white p-6 rounded-xl border shadow-sm hover:border-yellow-500 transition-all">
-                <h3 class="font-bold text-lg mb-2 text-yellow-600 tool-name">🎓 TC Application</h3>
-                <button onclick="openTool('tc')" class="open-btn w-full bg-yellow-500 text-white py-2 rounded-lg font-bold">Open Tool</button>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                <h3 class="font-bold text-lg mb-2 text-yellow-600 tool-h">🎓 TC Application</h3>
+                <button onclick="openTool('tc')" class="open-btn w-full bg-yellow-500 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
             </div>
-            <div class="bg-white p-6 rounded-xl border shadow-sm hover:border-pink-400 transition-all">
-                <h3 class="font-bold text-lg mb-2 text-pink-600 tool-name">💼 Job Experience</h3>
-                <button onclick="openTool('exp')" class="open-btn w-full bg-pink-600 text-white py-2 rounded-lg font-bold">Open Tool</button>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                <h3 class="font-bold text-lg mb-2 text-pink-600 tool-h">💼 Job Experience</h3>
+                <button onclick="openTool('exp')" class="open-btn w-full bg-pink-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
             </div>
         </div>
 
-        <div id="form-section" class="hidden mt-10 bg-white p-8 rounded-xl border shadow-md">
-            <button onclick="backToMenu()" class="text-blue-600 font-bold text-sm mb-6 underline">← Back to Menu</button>
-            <h2 id="tool-title" class="text-2xl font-black text-gray-800 mb-6 uppercase">Tool Name</h2>
+        <div id="form-section" class="hidden mt-10 bg-white p-8 rounded-xl border border-gray-200 shadow-md">
+            <button onclick="backToMenu()" class="text-blue-600 font-bold text-sm mb-6 hover:underline">← Back to Menu</button>
+            <h2 id="tool-title" class="text-2xl font-black text-gray-800 mb-6">Enter Details</h2>
             <div class="space-y-5">
-                <input type="text" id="in1" placeholder="Full Name" class="w-full p-3 bg-gray-50 border rounded-lg outline-none focus:border-blue-500 text-lg">
-                <input type="text" id="in2" placeholder="Subject / Title" class="w-full p-3 bg-gray-50 border rounded-lg outline-none focus:border-blue-500 text-lg">
-                <textarea id="in3" placeholder="Enter details here..." class="w-full p-3 bg-gray-50 border rounded-lg h-48 outline-none focus:border-blue-500 text-lg"></textarea>
-                <button onclick="generateDoc()" class="w-full bg-blue-600 text-white py-4 rounded-lg font-bold text-xl hover:bg-blue-700 shadow-lg">Generate & Download PDF</button>
+                <input type="text" id="in1" placeholder="Full Name" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none">
+                <input type="text" id="in2" placeholder="Subject / Title" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none">
+                <textarea id="in3" placeholder="Enter full details here..." class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 h-40 focus:outline-none"></textarea>
+                <button onclick="generateDoc()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors">Generate Document</button>
             </div>
+            
             <div id="resume-output" style="padding: 40px; background: white; color: black; display: none;"></div>
         </div>
     </div>
+
+    <footer class="p-10 bg-white mt-20 border-t border-gray-200 text-center">
+        <p class="text-gray-400 text-xs">© 2026 Quick All Doc Pro | Built by Yuvraj Shinde</p>
+    </footer>
 
     <script>
     let currentTool = '';
     
     function openTool(tool) {
-        console.log("Opening tool:", tool); // Debugging
         if (window.adsbygoogle) { (adsbygoogle = window.adsbygoogle || []).push({}); }
-        
         currentTool = tool;
         document.getElementById('main-menu').classList.add('hidden');
         document.getElementById('form-section').classList.remove('hidden');
@@ -90,8 +100,8 @@
             'resume': 'Resume Builder', 'leave': 'Leave Application', 'police': 'Police Complaint',
             'legal': 'Legal Notice', 'tc': 'TC Application', 'exp': 'Experience Certificate'
         };
-        document.getElementById('tool-title').innerText = titles[tool] || "Document Generator";
-        window.scrollTo(0, 0);
+        document.getElementById('tool-title').innerText = titles[tool];
+        window.scrollTo(0,0);
     }
 
     function backToMenu() {
@@ -105,32 +115,41 @@
         const det = document.getElementById('in3').value;
 
         if(!name || !sub || !det) {
-            alert("Bhai, saari details bhariye!");
+            alert("Bhai, pehle saari details bharo!");
             return;
         }
 
         const output = document.getElementById('resume-output');
-        output.innerHTML = `
-            <div style="font-family: Arial, sans-serif; padding: 30px; border: 1px solid #eee;">
-                <h1 style="text-align: center; color: #2563eb; margin-bottom: 5px;">${name}</h1>
-                <hr style="border: 1px solid #ccc;">
-                <p style="margin-top: 20px;"><strong>Date:</strong> ${new Date().toLocaleDateString()}</p>
-                <p><strong>Subject:</strong> ${sub}</p>
-                <div style="white-space: pre-wrap; margin-top: 20px; line-height: 1.6; min-height: 300px;">${det}</div>
-                <p style="margin-top: 50px;">Sincerely,<br><strong>${name}</strong></p>
-            </div>
-        `;
+        
+        // Yahan format badlega tool ke hisab se
+        let htmlContent = "";
+        if(currentTool === 'resume') {
+            htmlContent = `<h1 style="text-align: center; font-size: 24px;">${name}</h1><hr><h3 style="margin-top:20px;">Subject: ${sub}</h3><p style="margin-top:15px;">${det}</p>`;
+        } else {
+            htmlContent = `
+                <div style="font-family: Arial; line-height: 1.6;">
+                    <p style="text-align: right;">Date: ${new Date().toLocaleDateString()}</p>
+                    <p>To,<br>The Authority Concerns,</p>
+                    <p>From: ${name}</p>
+                    <p style="margin-top: 15px;"><strong>Subject: ${sub}</strong></p>
+                    <p style="margin-top: 15px;">Sir/Madam,</p>
+                    <p style="white-space: pre-wrap;">${det}</p>
+                    <p style="margin-top: 30px;">Regards,<br><strong>${name}</strong></p>
+                </div>`;
+        }
+
+        output.innerHTML = htmlContent;
         output.style.display = 'block';
 
-        const opt = {
+        const options = {
             margin: 0.5,
-            filename: `${currentTool}_${name}.pdf`,
+            filename: currentTool + '_' + name + '.pdf',
             image: { type: 'jpeg', quality: 0.98 },
             html2canvas: { scale: 2 },
             jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
         };
 
-        html2pdf().set(opt).from(output).save().then(() => {
+        html2pdf().set(options).from(output).save().then(() => {
             output.style.display = 'none';
         });
     }
@@ -142,9 +161,9 @@
             hi: { title: "त्वरित दस्तावेज़ प्रो", tagline: "बैजनाथ शिंदे की विरासत", btn: "टूल खोलें" },
             mr: { title: "त्वरित दस्तऐवज प्रो", tagline: "वैजनाथ शिंदे यांचा वारसा", btn: "टूल उघडा" }
         };
-        
-        document.getElementById('main-heading').innerText = translations[lang].title;
-        document.getElementById('tagline').innerText = translations[lang].tagline;
+
+        document.getElementById('main-h2').innerText = translations[lang].title;
+        document.getElementById('tagline-p').innerText = translations[lang].tagline;
         document.querySelectorAll('.open-btn').forEach(btn => btn.innerText = translations[lang].btn);
     }
     </script>
