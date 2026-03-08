@@ -19,6 +19,8 @@
     <meta name="google-adsense-account" content="ca-pub-7650854652135464">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7650854652135464" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
     <link rel="manifest" href="manifest.json">
     
 </head>
@@ -119,6 +121,13 @@
                 <textarea id="in3" placeholder="Enter full details here..." class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 h-40 focus:outline-none focus:border-blue-500"></textarea>
                 <button onclick="generateDoc()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors">Generate Document</button>
             </div>
+            <div id="resume-output" style="padding: 20px; background: white; color: black; display: none; border: 1px solid #ccc; margin-top: 20px;">
+    <h1 id="out-name" style="text-align: center; font-size: 24px; font-weight: bold;"></h1>
+    <hr style="margin: 10px 0;">
+    <h3 style="font-weight: bold;">Subject: <span id="out-sub" style="font-weight: normal;"></span></h3>
+    <div id="out-det" style="white-space: pre-wrap; margin-top: 10px;"></div>
+            </div>
+            
         </div>
     </div>
 
