@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quick All Doc Pro | AI Document Generator</title>
     <meta name="description" content="Quick All Doc Pro: Online Resume builder and Leave application generator in Hindi and Marathi.">
-<meta name="keywords" content="Resume Builder Marathi, Leave Application Hindi, Application generator, Marathi document maker">
+    <meta name="keywords" content="Resume Builder Marathi, Leave Application Hindi, Application generator, Marathi document maker">
     <meta name="google-site-verification" content="5_-qYd9IDpCL9oJlTMNBHlzwjm6uZVYLmWHr2A6rMFM" />
     
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CLSPYD6XKR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CLSPYD6XKR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-CLSPYD6XKR');
-</script>
+      gtag('config', 'G-CLSPYD6XKR');
+    </script>
     <meta name="google-adsense-account" content="ca-pub-7650854652135464">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7650854652135464" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -27,19 +27,17 @@
 <body class="bg-gray-50 text-gray-900 font-sans">
 
     <nav class="p-4 bg-white shadow-sm flex justify-between items-center border-b border-gray-200">
-                <div class="flex items-center space-x-3">
-                    <img src="Icon.png" alt="Logo" class="h-10 w-10 rounded shadow-sm">
-                    
+        <div class="flex items-center space-x-3">
+            <img src="Icon.png" alt="Logo" class="h-10 w-10 rounded shadow-sm">
             <h1 class="text-xl font-extrabold text-blue-600">Quick All Doc Pro</h1>
-                </div>
-                <div class="flex items-center ml-auto mr-4">
+        </div>
+        <div class="flex items-center ml-auto mr-4">
             <select id="langSelect" onchange="updateLanguage()" class="bg-gray-100 text-sm font-bold p-2 rounded border border-gray-300 outline-none cursor-pointer">
                 <option value="en">English</option>
                 <option value="hi">Hindi (हिंदी)</option>
                 <option value="mr">Marathi (मराठी)</option>
             </select>
-                </div>
-        
+        </div>
         
         <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-600">
             <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
@@ -121,13 +119,13 @@
                 <textarea id="in3" placeholder="Enter full details here..." class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 h-40 focus:outline-none focus:border-blue-500"></textarea>
                 <button onclick="generateDoc()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors">Generate Document</button>
             </div>
-            <div id="resume-output" style="padding: 20px; background: white; color: black; display: none; border: 1px solid #ccc; margin-top: 20px;">
-    <h1 id="out-name" style="text-align: center; font-size: 24px; font-weight: bold;"></h1>
-    <hr style="margin: 10px 0;">
-    <h3 style="font-weight: bold;">Subject: <span id="out-sub" style="font-weight: normal;"></span></h3>
-    <div id="out-det" style="white-space: pre-wrap; margin-top: 10px;"></div>
-            </div>
             
+            <div id="resume-output" style="padding: 40px; background: white; color: black; display: none; border: 1px solid #ccc; margin-top: 20px;">
+                <h1 id="out-name" style="text-align: center; font-size: 28px; font-weight: bold; margin-bottom: 10px;"></h1>
+                <hr style="margin: 20px 0; border: 1px solid #000;">
+                <h3 style="font-weight: bold; font-size: 18px; margin-bottom: 20px;">Subject: <span id="out-sub" style="font-weight: normal;"></span></h3>
+                <div id="out-det" style="white-space: pre-wrap; margin-top: 10px; font-size: 16px; line-height: 1.6;"></div>
+            </div>
         </div>
     </div>
 
@@ -144,11 +142,17 @@
     let currentTool = '';
     
     function openTool(tool) {
-        (adsbygoogle = window.adsbygoogle || []).push({});
+        // AdSense track karega lekin app block nahi hogi
+        try {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+            console.log("AdSense approval in progress...");
+        }
         
         currentTool = tool;
         document.getElementById('main-menu').classList.add('hidden');
         document.getElementById('form-section').classList.remove('hidden');
+        
         const titles = {
             'resume': 'Resume Builder',
             'leave': 'Leave Application',
@@ -161,6 +165,11 @@
             'rent': 'Rent Agreement Format'
         };
         document.getElementById('tool-title').innerText = titles[tool];
+        
+        // Form ko khali karne ke liye (jab nayi tool kholein)
+        document.getElementById('in1').value = '';
+        document.getElementById('in2').value = '';
+        document.getElementById('in3').value = '';
     }
 
     function backToMenu() {
@@ -169,35 +178,34 @@
     }
 
     function generateDoc() {
-    const name = document.getElementById('in1').value;
-    const sub = document.getElementById('in2').value;
-    const det = document.getElementById('in3').value;
+        const name = document.getElementById('in1').value;
+        const sub = document.getElementById('in2').value;
+        const det = document.getElementById('in3').value;
 
-    if(!name || !sub || !det) {
-        alert("Bhai, pehle saari details bharo!");
-        return;
+        if(!name || !sub || !det) {
+            alert("Bhai, pehle saari details bharo!");
+            return;
+        }
+
+        document.getElementById('out-name').innerText = name;
+        document.getElementById('out-sub').innerText = sub;
+        document.getElementById('out-det').innerText = det;
+
+        const element = document.getElementById('resume-output');
+        element.style.display = 'block';
+
+        const options = {
+            margin: 0.5,
+            filename: name.replace(/\s+/g, '_') + '_' + currentTool + '.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        html2pdf().set(options).from(element).save().then(() => {
+            element.style.display = 'none';
+        });
     }
-
-    document.getElementById('out-name').innerText = name;
-    document.getElementById('out-sub').innerText = sub;
-    document.getElementById('out-det').innerText = det;
-
-    const element = document.getElementById('resume-output');
-    element.style.display = 'block';
-
-    const options = {
-        margin: 0.5,
-        filename: name + '_Resume.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-    };
-
-    html2pdf().set(options).from(element).save().then(() => {
-        element.style.display = 'none';
-    });
-    }
-        
 
     function updateLanguage() {
         const lang = document.getElementById('langSelect').value;
@@ -205,19 +213,19 @@
             en: {
                 mainTitle: "QUICK ALL DOC PRO",
                 tagline: "Legacy of Vaijnath Shinde | Professional Tools",
-                tools: ["Resume Builder", "Leave Application", "Police Complaint", "Legal Notice", "TC Application", "Job Experience", "Job Application", "Affidavit Format", "Rent Agreement"],
+                tools: ["📄 Resume Builder", "📝 Leave Application", "🚨 Police Complaint", "⚖️ Legal Notice", "🎓 TC Application", "💼 Job Experience", "📨 Job Application", "📜 Affidavit Format", "🏠 Rent Agreement"],
                 btn: "Open Tool"
             },
             hi: {
                 mainTitle: "त्वरित दस्तावेज़ प्रो",
-                tagline: "बैजनाथ शिंदे की विरासत | पेशेवर उपकरण",
-                tools: ["रिज्यूमे बिल्डर", "छुट्टी का आवेदन", "पुलिस शिकायत", "कानूनी नोटिस", "टीसी आवेदन", "कार्य अनुभव", "नौकरी का आवेदन", "शपथ पत्र प्रारूप", "किराया समझौता"],
+                tagline: "वैजनाथ शिंदे की विरासत | पेशेवर उपकरण",
+                tools: ["📄 रिज्यूमे बिल्डर", "📝 छुट्टी का आवेदन", "🚨 पुलिस शिकायत", "⚖️ कानूनी नोटिस", "🎓 टीसी आवेदन", "💼 कार्य अनुभव", "📨 नौकरी का आवेदन", "📜 शपथ पत्र प्रारूप", "🏠 किराया समझौता"],
                 btn: "टूल खोलें"
             },
             mr: {
                 mainTitle: "त्वरित दस्तऐवज प्रो",
                 tagline: "वैजनाथ शिंदे यांचा वारसा | व्यावसायिक साधने",
-                tools: ["रेझ्युमे बिल्डर", "रजेचा अर्ज", "पोलीस तक्रार", "कायदेशीर नोटीस", "टीसी अर्ज", "कामाचा अनुभव", "नोकरीसाठी अर्ज", "प्रतिज्ञापत्र नमुना", "भाडे करार"],
+                tools: ["📄 रेझ्युमे बिल्डर", "📝 रजेचा अर्ज", "🚨 पोलीस तक्रार", "⚖️ कायदेशीर नोटीस", "🎓 टीसी अर्ज", "💼 कामाचा अनुभव", "📨 नोकरीसाठी अर्ज", "📜 प्रतिज्ञापत्र नमुना", "🏠 भाडे करार"],
                 btn: "टूल उघडा"
             }
         };
@@ -225,10 +233,10 @@
         document.querySelector('h2').innerText = translations[lang].mainTitle;
         document.querySelector('p.italic').innerText = translations[lang].tagline;
         
-        const headings = document.querySelectorAll('h3');
+        const headings = document.querySelectorAll('#main-menu h3');
         headings.forEach((h3, index) => {
             if(translations[lang].tools[index]) {
-                h3.innerHTML = h3.innerHTML.split('</i>')[0] + '</i> ' + translations[lang].tools[index];
+                h3.innerText = translations[lang].tools[index];
             }
         });
 
@@ -238,4 +246,5 @@
     </script>
     
 </body>
-</html>
+                                                                                                  </html>
+    
