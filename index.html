@@ -4,48 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quick All Doc Pro | AI Document Generator</title>
-    <meta name="description" content="Quick All Doc Pro: Online Resume builder and Leave application generator in Hindi and Marathi.">
-<meta name="keywords" content="Resume Builder Marathi, Leave Application Hindi, Application generator, Marathi document maker">
-    <meta name="google-site-verification" content="5_-qYd9IDpCL9oJlTMNBHlzwjm6uZVYLmWHr2A6rMFM" />
-    
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CLSPYD6XKR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-CLSPYD6XKR');
-</script>
+    <meta name="description" content="Quick All Doc Pro: Online Resume builder and Leave application generator.">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CLSPYD6XKR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CLSPYD6XKR');
+    </script>
     <meta name="google-adsense-account" content="ca-pub-7650854652135464">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7650854652135464" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    
     <link rel="manifest" href="manifest.json">
-    
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
-
     <nav class="p-4 bg-white shadow-sm flex justify-between items-center border-b border-gray-200">
-                <div class="flex items-center space-x-3">
-                    <img src="Icon.png" alt="Logo" class="h-10 w-10 rounded shadow-sm">
-                    
+        <div class="flex items-center space-x-3">
+            <img src="Icon.png" alt="Logo" class="h-10 w-10 rounded shadow-sm">
             <h1 class="text-xl font-extrabold text-blue-600">Quick All Doc Pro</h1>
-                </div>
-                <div class="flex items-center ml-auto mr-4">
-            <select id="langSelect" onchange="updateLanguage()" class="bg-gray-100 text-sm font-bold p-2 rounded border border-gray-300 outline-none cursor-pointer">
-                <option value="en">English</option>
-                <option value="hi">Hindi (हिंदी)</option>
-                <option value="mr">Marathi (मराठी)</option>
-            </select>
-                </div>
-        
-        
-        <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-600">
-            <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
-            <a href="terms.html" class="hover:text-blue-600">Terms</a>
-            <a href="contact.html" class="hover:text-blue-600">Contact</a>
         </div>
+        <select id="langSelect" onchange="updateLanguage()" class="bg-gray-100 text-sm font-bold p-2 rounded border outline-none">
+            <option value="en">English</option>
+            <option value="hi">Hindi (हिंदी)</option>
+            <option value="mr">Marathi (मराठी)</option>
+        </select>
     </nav>
 
     <div class="max-w-5xl mx-auto p-4">
@@ -55,110 +38,74 @@
         </header>
 
         <div id="main-menu" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-400 transition-all">
+            <div class="bg-white p-6 rounded-xl border shadow-sm hover:border-blue-400 transition-all">
                 <h3 class="font-bold text-lg mb-2 text-blue-600">📄 Resume Builder</h3>
-                <p class="text-xs text-gray-500 mb-4">Create professional CVs instantly.</p>
-                <button onclick="openTool('resume')" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+                <button onclick="openTool('resume')" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold">Open Tool</button>
             </div>
-
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-green-400 transition-all">
+            <div class="bg-white p-6 rounded-xl border shadow-sm hover:border-green-400 transition-all">
                 <h3 class="font-bold text-lg mb-2 text-green-600">📝 Leave Application</h3>
-                <p class="text-xs text-gray-500 mb-4">School, College or Office letters.</p>
-                <button onclick="openTool('leave')" class="w-full bg-green-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+                <button onclick="openTool('leave')" class="w-full bg-green-600 text-white py-2 rounded-lg font-bold">Open Tool</button>
             </div>
-
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-red-400 transition-all">
+            <div class="bg-white p-6 rounded-xl border shadow-sm hover:border-red-400 transition-all">
                 <h3 class="font-bold text-lg mb-2 text-red-600">🚨 Police Complaint</h3>
-                <p class="text-xs text-gray-500 mb-4">Formal letters for local stations.</p>
-                <button onclick="openTool('police')" class="w-full bg-red-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+                <button onclick="openTool('police')" class="w-full bg-red-600 text-white py-2 rounded-lg font-bold">Open Tool</button>
             </div>
-
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-purple-400 transition-all">
+            <div class="bg-white p-6 rounded-xl border shadow-sm hover:border-purple-400 transition-all">
                 <h3 class="font-bold text-lg mb-2 text-purple-600">⚖️ Legal Notice</h3>
-                <p class="text-xs text-gray-500 mb-4">Basic draft for legal matters.</p>
-                <button onclick="openTool('legal')" class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+                <button onclick="openTool('legal')" class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold">Open Tool</button>
             </div>
-
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-yellow-500 transition-all">
+            <div class="bg-white p-6 rounded-xl border shadow-sm hover:border-yellow-500 transition-all">
                 <h3 class="font-bold text-lg mb-2 text-yellow-600">🎓 TC Application</h3>
-                <p class="text-xs text-gray-500 mb-4">Transfer Certificate request for school.</p>
-                <button onclick="openTool('tc')" class="w-full bg-yellow-500 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+                <button onclick="openTool('tc')" class="w-full bg-yellow-500 text-white py-2 rounded-lg font-bold">Open Tool</button>
             </div>
-
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-pink-400 transition-all">
+            <div class="bg-white p-6 rounded-xl border shadow-sm hover:border-pink-400 transition-all">
                 <h3 class="font-bold text-lg mb-2 text-pink-600">💼 Job Experience</h3>
-                <p class="text-xs text-gray-500 mb-4">Experience letters for employees.</p>
-                <button onclick="openTool('exp')" class="w-full bg-pink-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+                <button onclick="openTool('exp')" class="w-full bg-pink-600 text-white py-2 rounded-lg font-bold">Open Tool</button>
             </div>
-
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-indigo-400 transition-all">
+            <div class="bg-white p-6 rounded-xl border shadow-sm hover:border-indigo-400 transition-all">
                 <h3 class="font-bold text-lg mb-2 text-indigo-600">📨 Job Application</h3>
-                <p class="text-xs text-gray-500 mb-4">Cover letters for job interviews.</p>
-                <button onclick="openTool('job')" class="w-full bg-indigo-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+                <button onclick="openTool('job')" class="w-full bg-indigo-600 text-white py-2 rounded-lg font-bold">Open Tool</button>
             </div>
-
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-orange-400 transition-all">
+            <div class="bg-white p-6 rounded-xl border shadow-sm hover:border-orange-400 transition-all">
                 <h3 class="font-bold text-lg mb-2 text-orange-600">📜 Affidavit Format</h3>
-                <p class="text-xs text-gray-500 mb-4">Standard affidavit draft templates.</p>
-                <button onclick="openTool('affidavit')" class="w-full bg-orange-500 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+                <button onclick="openTool('affidavit')" class="w-full bg-orange-500 text-white py-2 rounded-lg font-bold">Open Tool</button>
             </div>
-
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-teal-400 transition-all">
+            <div class="bg-white p-6 rounded-xl border shadow-sm hover:border-teal-400 transition-all">
                 <h3 class="font-bold text-lg mb-2 text-teal-600">🏠 Rent Agreement</h3>
-                <p class="text-xs text-gray-500 mb-4">Room or house rental agreements.</p>
-                <button onclick="openTool('rent')" class="w-full bg-teal-600 text-white py-2 rounded-lg font-bold text-sm">Open Tool</button>
+                <button onclick="openTool('rent')" class="w-full bg-teal-600 text-white py-2 rounded-lg font-bold">Open Tool</button>
             </div>
-
         </div>
 
-        <div id="form-section" class="hidden mt-10 bg-white p-8 rounded-xl border border-gray-200 shadow-md">
-            <button onclick="backToMenu()" class="text-blue-600 font-bold text-sm mb-6 hover:underline">← Back to Menu</button>
-            <h2 id="tool-title" class="text-2xl font-black text-gray-800 mb-6">Enter Details</h2>
+        <div id="form-section" class="hidden mt-10 bg-white p-8 rounded-xl border shadow-md">
+            <button onclick="backToMenu()" class="text-blue-600 font-bold text-sm mb-6 underline">← Back to Menu</button>
+            <h2 id="tool-title" class="text-2xl font-black text-gray-800 mb-6 uppercase">Tool Name</h2>
             <div class="space-y-5">
-                <input type="text" id="in1" placeholder="Full Name" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-blue-500">
-                <input type="text" id="in2" placeholder="Subject / Title" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-blue-500">
-                <textarea id="in3" placeholder="Enter full details here..." class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 h-40 focus:outline-none focus:border-blue-500"></textarea>
-                <button onclick="generateDoc()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors">Generate Document</button>
+                <input type="text" id="in1" placeholder="Full Name" class="w-full p-3 bg-gray-50 border rounded-lg outline-none focus:border-blue-500">
+                <input type="text" id="in2" placeholder="Subject / Title" class="w-full p-3 bg-gray-50 border rounded-lg outline-none focus:border-blue-500">
+                <textarea id="in3" placeholder="Enter full details here..." class="w-full p-3 bg-gray-50 border rounded-lg h-40 outline-none focus:border-blue-500"></textarea>
+                <button onclick="generateDoc()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700">Generate PDF</button>
             </div>
-            <div id="resume-output" style="padding: 20px; background: white; color: black; display: none; border: 1px solid #ccc; margin-top: 20px;">
-    <h1 id="out-name" style="text-align: center; font-size: 24px; font-weight: bold;"></h1>
-    <hr style="margin: 10px 0;">
-    <h3 style="font-weight: bold;">Subject: <span id="out-sub" style="font-weight: normal;"></span></h3>
-    <div id="out-det" style="white-space: pre-wrap; margin-top: 10px;"></div>
-            </div>
-            
+            <div id="resume-output" style="padding: 40px; background: white; color: black; display: none;"></div>
         </div>
     </div>
 
-    <footer class="p-10 bg-white mt-20 border-t border-gray-200 text-center">
-        <div class="flex justify-center space-x-6 mb-4 text-sm font-medium">
-            <a href="privacy.html" class="text-gray-600 hover:text-blue-600">Privacy Policy</a>
-            <a href="terms.html" class="text-gray-600 hover:text-blue-600">Terms</a>
-            <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact</a>
-        </div>
-        <p class="text-gray-400 text-xs">© 2026 Quick All Doc Pro | Built by Yuvraj Shinde</p>
+    <footer class="p-10 text-center border-t mt-20 text-gray-400 text-xs">
+        <p>© 2026 Quick All Doc Pro | Built by Yuvraj Shinde</p>
     </footer>
 
     <script>
     let currentTool = '';
     
     function openTool(tool) {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        
+        (adsbygoogle = window.adsbygoogle || []).push({}); // Ad Trigger
         currentTool = tool;
         document.getElementById('main-menu').classList.add('hidden');
         document.getElementById('form-section').classList.remove('hidden');
+        
         const titles = {
-            'resume': 'Resume Builder',
-            'leave': 'Leave Application',
-            'police': 'Police Complaint',
-            'legal': 'Legal Notice',
-            'tc': 'TC Application',
-            'exp': 'Experience Certificate',
-            'job': 'Job Application Letter',
-            'affidavit': 'Affidavit Format',
-            'rent': 'Rent Agreement Format'
+            'resume': 'Resume Builder', 'leave': 'Leave Application', 'police': 'Police Complaint',
+            'legal': 'Legal Notice', 'tc': 'TC Application', 'exp': 'Experience Certificate',
+            'job': 'Job Application Letter', 'affidavit': 'Affidavit Format', 'rent': 'Rent Agreement Format'
         };
         document.getElementById('tool-title').innerText = titles[tool];
     }
@@ -169,74 +116,52 @@
     }
 
     function generateDoc() {
-    const name = document.getElementById('in1').value;
-    const sub = document.getElementById('in2').value;
-    const det = document.getElementById('in3').value;
+        const name = document.getElementById('in1').value;
+        const sub = document.getElementById('in2').value;
+        const det = document.getElementById('in3').value;
 
-    if(!name || !sub || !det) {
-        alert("Bhai, pehle saari details bharo!");
-        return;
+        if(!name || !sub || !det) {
+            alert("Bhai, details toh bharo!");
+            return;
+        }
+
+        const output = document.getElementById('resume-output');
+        output.innerHTML = `
+            <div style="font-family: Arial; padding: 20px;">
+                <h1 style="text-align: center; text-transform: uppercase;">${name}</h1>
+                <hr style="border: 1px solid black; margin: 10px 0;">
+                <p><strong>To:</strong> The Concerned Authority</p>
+                <p><strong>From:</strong> ${name}</p>
+                <p><strong>Subject:</strong> ${sub}</p>
+                <div style="white-space: pre-wrap; margin-top: 20px; line-height: 1.6;">${det}</div>
+                <p style="margin-top: 40px;">Regards,<br><strong>${name}</strong></p>
+            </div>
+        `;
+        output.style.display = 'block';
+
+        const opt = {
+            margin: 0.5,
+            filename: `${currentTool}_${name}.pdf`,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        html2pdf().set(opt).from(output).save().then(() => {
+            output.style.display = 'none';
+        });
     }
-
-    document.getElementById('out-name').innerText = name;
-    document.getElementById('out-sub').innerText = sub;
-    document.getElementById('out-det').innerText = det;
-
-    const element = document.getElementById('resume-output');
-    element.style.display = 'block';
-
-    const options = {
-        margin: 0.5,
-        filename: name + '_Resume.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-    };
-
-    html2pdf().set(options).from(element).save().then(() => {
-        element.style.display = 'none';
-    });
-    }
-        
 
     function updateLanguage() {
         const lang = document.getElementById('langSelect').value;
         const translations = {
-            en: {
-                mainTitle: "QUICK ALL DOC PRO",
-                tagline: "Legacy of Vaijnath Shinde | Professional Tools",
-                tools: ["Resume Builder", "Leave Application", "Police Complaint", "Legal Notice", "TC Application", "Job Experience", "Job Application", "Affidavit Format", "Rent Agreement"],
-                btn: "Open Tool"
-            },
-            hi: {
-                mainTitle: "त्वरित दस्तावेज़ प्रो",
-                tagline: "बैजनाथ शिंदे की विरासत | पेशेवर उपकरण",
-                tools: ["रिज्यूमे बिल्डर", "छुट्टी का आवेदन", "पुलिस शिकायत", "कानूनी नोटिस", "टीसी आवेदन", "कार्य अनुभव", "नौकरी का आवेदन", "शपथ पत्र प्रारूप", "किराया समझौता"],
-                btn: "टूल खोलें"
-            },
-            mr: {
-                mainTitle: "त्वरित दस्तऐवज प्रो",
-                tagline: "वैजनाथ शिंदे यांचा वारसा | व्यावसायिक साधने",
-                tools: ["रेझ्युमे बिल्डर", "रजेचा अर्ज", "पोलीस तक्रार", "कायदेशीर नोटीस", "टीसी अर्ज", "कामाचा अनुभव", "नोकरीसाठी अर्ज", "प्रतिज्ञापत्र नमुना", "भाडे करार"],
-                btn: "टूल उघडा"
-            }
+            hi: { title: "त्वरित दस्तावेज़ प्रो", btn: "टूल खोलें" },
+            mr: { title: "त्वरित दस्तऐवज प्रो", btn: "टूल उघडा" },
+            en: { title: "Quick All Doc Pro", btn: "Open Tool" }
         };
-
-        document.querySelector('h2').innerText = translations[lang].mainTitle;
-        document.querySelector('p.italic').innerText = translations[lang].tagline;
-        
-        const headings = document.querySelectorAll('h3');
-        headings.forEach((h3, index) => {
-            if(translations[lang].tools[index]) {
-                h3.innerHTML = h3.innerHTML.split('</i>')[0] + '</i> ' + translations[lang].tools[index];
-            }
-        });
-
-        const buttons = document.querySelectorAll('#main-menu button');
-        buttons.forEach(btn => btn.innerText = translations[lang].btn);
+        document.querySelector('h2').innerText = translations[lang].title;
+        document.querySelectorAll('#main-menu button').forEach(b => b.innerText = translations[lang].btn);
     }
     </script>
-    
 </body>
-                </html>
-                    
+</html>
