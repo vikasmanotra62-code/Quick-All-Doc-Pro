@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quick All Doc Pro | AI Document Generator</title>
-    <meta name="description" content="Quick All Doc Pro: Online Resume builder and Leave application generator in Hindi and Marathi.">
-    <meta name="keywords" content="Resume Builder Marathi, Leave Application Hindi, Application generator, Marathi document maker">
-    <meta name="google-site-verification" content="5_-qYd9IDpCL9oJlTMNBHlzwjm6uZVYLmWHr2A6rMFM" />
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CLSPYD6XKR"></script>
     <script>
@@ -20,8 +17,6 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    
-    <link rel="manifest" href="manifest.json">
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
 
@@ -33,15 +28,15 @@
         
         <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-600 mr-4">
             <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
-            <a href="terms.html" class="hover:text-blue-600">Terms</a>
-            <a href="contact.html" class="hover:text-blue-600">Contact</a>
+            <a href="terms.html" class="hover:text-blue-600">Terms & Conditions</a>
+            <a href="contact.html" class="hover:text-blue-600">Contact Us</a>
         </div>
 
         <div class="flex items-center ml-auto md:ml-0">
             <select id="langSelect" onchange="updateLanguage()" class="bg-gray-100 text-sm font-bold p-2 rounded border border-gray-300 outline-none cursor-pointer">
                 <option value="en">English</option>
-                <option value="hi">Hindi (हिंदी)</option>
-                <option value="mr">Marathi (मराठी)</option>
+                <option value="hi">Hindi</option>
+                <option value="mr">Marathi</option>
             </select>
         </div>
     </nav>
@@ -53,39 +48,39 @@
         </header>
 
         <div id="main-menu" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
                 <h3 class="font-bold text-lg mb-2 text-blue-600">📄 Resume Builder</h3>
                 <button onclick="openTool('resume')" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
             </div>
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
                 <h3 class="font-bold text-lg mb-2 text-green-600">📝 Leave Application</h3>
                 <button onclick="openTool('leave')" class="w-full bg-green-600 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
             </div>
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
                 <h3 class="font-bold text-lg mb-2 text-red-600">🚨 Police Complaint</h3>
                 <button onclick="openTool('police')" class="w-full bg-red-600 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
             </div>
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
                 <h3 class="font-bold text-lg mb-2 text-purple-600">⚖️ Legal Notice</h3>
                 <button onclick="openTool('legal')" class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
             </div>
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
                 <h3 class="font-bold text-lg mb-2 text-yellow-600">🎓 TC Application</h3>
                 <button onclick="openTool('tc')" class="w-full bg-yellow-500 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
             </div>
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
                 <h3 class="font-bold text-lg mb-2 text-pink-600">💼 Job Experience</h3>
                 <button onclick="openTool('exp')" class="w-full bg-pink-600 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
             </div>
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
                 <h3 class="font-bold text-lg mb-2 text-indigo-600">📨 Job Application</h3>
                 <button onclick="openTool('job')" class="w-full bg-indigo-600 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
             </div>
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
                 <h3 class="font-bold text-lg mb-2 text-orange-600">📜 Affidavit Format</h3>
                 <button onclick="openTool('affidavit')" class="w-full bg-orange-500 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
             </div>
-            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
                 <h3 class="font-bold text-lg mb-2 text-teal-600">🏠 Rent Agreement</h3>
                 <button onclick="openTool('rent')" class="w-full bg-teal-600 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
             </div>
@@ -108,10 +103,10 @@
     <footer class="p-10 bg-white mt-20 border-t border-gray-200 text-center">
         <div class="flex justify-center space-x-6 mb-4 text-sm font-medium">
             <a href="privacy.html" class="text-gray-600 hover:text-blue-600">Privacy Policy</a>
-            <a href="terms.html" class="text-gray-600 hover:text-blue-600">Terms</a>
-            <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact</a>
+            <a href="terms.html" class="text-gray-600 hover:text-blue-600">Terms & Conditions</a>
+            <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact Us</a>
         </div>
-        <p class="text-gray-400 text-xs">© 2026 Quick All Doc Pro | Built by Yuvraj Shinde</p>
+        <p class="text-gray-400 text-xs">© 2026 Quick All Doc Pro | Built by Yuvi Shinde</p>
     </footer>
 
     <script>
@@ -121,173 +116,143 @@
             fields: [
                 { id: 'f_name', label: 'Full Name', type: 'text' },
                 { id: 'f_contact', label: 'Phone & Email', type: 'text' },
-                { id: 'f_address', label: 'Address', type: 'text' },
-                { id: 'f_objective', label: 'Career Objective', type: 'textarea' },
                 { id: 'f_edu', label: 'Education Details', type: 'textarea' },
-                { id: 'f_exp', label: 'Work Experience', type: 'textarea' },
-                { id: 'f_skills', label: 'Skills (comma separated)', type: 'textarea' }
+                { id: 'f_exp', label: 'Work Experience', type: 'textarea' }
             ],
-            render: (data) => `
-                <h1 style="text-align: center; font-size: 28px; font-weight: bold; margin-bottom: 5px; color: #2563eb;">${data.f_name}</h1>
-                <p style="text-align: center; font-size: 14px; margin-bottom: 20px;">${data.f_address} | ${data.f_contact}</p>
-                <hr style="border: 1px solid #ccc; margin-bottom: 20px;">
-                <h3 style="font-size: 18px; font-weight: bold; color: #1e3a8a; border-bottom: 1px solid #ccc; padding-bottom: 5px;">Objective</h3>
-                <p style="margin-top: 10px; margin-bottom: 20px;">${data.f_objective}</p>
-                <h3 style="font-size: 18px; font-weight: bold; color: #1e3a8a; border-bottom: 1px solid #ccc; padding-bottom: 5px;">Education</h3>
-                <p style="white-space: pre-wrap; margin-top: 10px; margin-bottom: 20px;">${data.f_edu}</p>
-                <h3 style="font-size: 18px; font-weight: bold; color: #1e3a8a; border-bottom: 1px solid #ccc; padding-bottom: 5px;">Experience</h3>
-                <p style="white-space: pre-wrap; margin-top: 10px; margin-bottom: 20px;">${data.f_exp}</p>
-                <h3 style="font-size: 18px; font-weight: bold; color: #1e3a8a; border-bottom: 1px solid #ccc; padding-bottom: 5px;">Skills</h3>
-                <p style="white-space: pre-wrap; margin-top: 10px;">${data.f_skills}</p>
-            `
+            render: (data) => `<h1>${data.f_name}</h1><p>${data.f_contact}</p><h3>Education</h3><p>${data.f_edu}</p><h3>Experience</h3><p>${data.f_exp}</p>`
         },
         'leave': {
             title: 'Leave Application',
             fields: [
-                { id: 'f_to', label: 'To (e.g., The Principal / The Manager)', type: 'text' },
-                { id: 'f_org', label: 'School / Company Name & Address', type: 'textarea' },
+                { id: 'f_to', label: 'To (e.g., The Principal)', type: 'text' },
                 { id: 'f_sub', label: 'Subject', type: 'text' },
-                { id: 'f_details', label: 'Reason for leave & Dates', type: 'textarea' },
-                { id: 'f_name', label: 'Your Full Name', type: 'text' },
-                { id: 'f_date', label: 'Today\'s Date', type: 'text' }
+                { id: 'f_details', label: 'Reason for leave', type: 'textarea' }
             ],
-            render: (data) => `
-                <p><strong>Date:</strong> ${data.f_date}</p><br>
-                <p><strong>To,</strong><br>${data.f_to}<br>${data.f_org.replace(/\n/g, '<br>')}</p><br>
-                <p><strong>Subject:</strong> ${data.f_sub}</p><br>
-                <p><strong>Respected Sir/Madam,</strong></p>
-                <p style="white-space: pre-wrap; margin-top: 10px;">${data.f_details}</p><br>
-                <p>Thanking you,</p>
-                <p><strong>Yours sincerely,</strong><br>${data.f_name}</p>
-            `
+            render: (data) => `<p>To,<br>${data.f_to}</p><p>Subject: ${data.f_sub}</p><p>${data.f_details}</p>`
         },
         'police': {
             title: 'Police Complaint',
             fields: [
-                { id: 'f_station', label: 'Police Station Name & Area', type: 'text' },
-                { id: 'f_sub', label: 'Subject (Type of Complaint)', type: 'text' },
-                { id: 'f_details', label: 'Full Details of Incident', type: 'textarea' },
-                { id: 'f_name', label: 'Your Name & Address', type: 'textarea' },
-                { id: 'f_date', label: 'Date', type: 'text' }
+                { id: 'f_station', label: 'Police Station Name', type: 'text' },
+                { id: 'f_sub', label: 'Subject', type: 'text' },
+                { id: 'f_details', label: 'Complaint Details', type: 'textarea' }
             ],
-            render: (data) => `
-                <p><strong>Date:</strong> ${data.f_date}</p><br>
-                <p><strong>To,</strong><br>The Officer In-Charge,<br>${data.f_station}</p><br>
-                <p><strong>Subject:</strong> ${data.f_sub}</p><br>
-                <p><strong>Respected Sir,</strong></p>
-                <p style="white-space: pre-wrap; margin-top: 10px;">I am writing to formally report an incident. ${data.f_details}</p>
-                <p style="margin-top: 10px;">I request you to kindly register an FIR and take necessary legal action in this matter.</p><br>
-                <p><strong>Complainant Details:</strong><br>${data.f_name.replace(/\n/g, '<br>')}</p>
-            `
+            render: (data) => `<p>To,<br>The Officer In-Charge,<br>${data.f_station}</p><p>Subject: ${data.f_sub}</p><p>${data.f_details}</p>`
         },
         'legal': {
             title: 'Legal Notice',
             fields: [
-                { id: 'f_lawyer', label: 'Advocate/Lawyer Name & Address', type: 'textarea' },
-                { id: 'f_client', label: 'Your Name (Client)', type: 'text' },
-                { id: 'f_opposite', label: 'Receiver Name & Address (Opposite Party)', type: 'textarea' },
-                { id: 'f_sub', label: 'Subject of Notice', type: 'text' },
-                { id: 'f_details', label: 'Notice Details / Grievance', type: 'textarea' }
+                { id: 'f_client', label: 'Client Name', type: 'text' },
+                { id: 'f_sub', label: 'Subject', type: 'text' },
+                { id: 'f_details', label: 'Notice Details', type: 'textarea' }
             ],
-            render: (data) => `
-                <h2 style="text-align: center; text-decoration: underline; font-weight: bold;">LEGAL NOTICE</h2><br>
-                <p><strong>From:</strong><br>${data.f_lawyer.replace(/\n/g, '<br>')}</p><br>
-                <p><strong>To,</strong><br>${data.f_opposite.replace(/\n/g, '<br>')}</p><br>
-                <p>Under the instructions of my client <strong>${data.f_client}</strong>, I hereby serve upon you the following legal notice:</p><br>
-                <p><strong>Subject:</strong> ${data.f_sub}</p><br>
-                <p style="white-space: pre-wrap; text-align: justify;">${data.f_details}</p><br>
-                <p>You are hereby called upon to comply with the demands mentioned above within 15 days of receiving this notice.</p><br>
-                <p><strong>Advocate Signature</strong></p>
-            `
+            render: (data) => `<h2>LEGAL NOTICE</h2><p>Client: ${data.f_client}</p><p>Subject: ${data.f_sub}</p><p>${data.f_details}</p>`
         },
         'tc': {
             title: 'TC Application',
             fields: [
-                { id: 'f_school', label: 'School/College Name', type: 'text' },
+                { id: 'f_school', label: 'School Name', type: 'text' },
                 { id: 'f_name', label: 'Student Name', type: 'text' },
-                { id: 'f_class', label: 'Class & Roll Number', type: 'text' },
-                { id: 'f_reason', label: 'Reason for Transfer', type: 'textarea' },
-                { id: 'f_date', label: 'Date', type: 'text' }
+                { id: 'f_reason', label: 'Reason for TC', type: 'textarea' }
             ],
-            render: (data) => `
-                <p><strong>Date:</strong> ${data.f_date}</p><br>
-                <p><strong>To,</strong><br>The Principal,<br>${data.f_school}</p><br>
-                <p><strong>Subject: Application for Transfer Certificate (TC)</strong></p><br>
-                <p><strong>Respected Sir/Madam,</strong></p>
-                <p style="white-space: pre-wrap;">With due respect, I beg to state that my name is ${data.f_name}, a student of class ${data.f_class}. I am writing this application to request you to issue my Transfer Certificate.</p>
-                <p style="white-space: pre-wrap;">The reason for this request is: ${data.f_reason}</p><br>
-                <p>Thanking you,</p>
-                <p><strong>Yours obediently,</strong><br>${data.f_name}<br>Class: ${data.f_class}</p>
-            `
+            render: (data) => `<p>To,<br>The Principal,<br>${data.f_school}</p><p>Student: ${data.f_name}</p><p>Reason: ${data.f_reason}</p>`
         },
         'exp': {
             title: 'Experience Certificate',
             fields: [
                 { id: 'f_company', label: 'Company Name', type: 'text' },
                 { id: 'f_name', label: 'Employee Name', type: 'text' },
-                { id: 'f_role', label: 'Designation / Role', type: 'text' },
-                { id: 'f_duration', label: 'Working Duration', type: 'text' },
-                { id: 'f_date', label: 'Date of Issue', type: 'text' }
+                { id: 'f_duration', label: 'Duration', type: 'text' }
             ],
-            render: (data) => `
-                <h1 style="text-align: center; font-weight: bold; font-size: 26px;">${data.f_company}</h1>
-                <hr style="border: 2px solid black; margin: 10px 0 30px 0;">
-                <p style="text-align: right;"><strong>Date:</strong> ${data.f_date}</p><br>
-                <h2 style="text-align: center; text-decoration: underline; font-weight: bold; margin-bottom: 30px;">TO WHOMSOEVER IT MAY CONCERN</h2>
-                <p style="line-height: 2; text-align: justify; font-size: 18px;">This is to certify that <strong>Mr./Ms. ${data.f_name}</strong> was employed with <strong>${data.f_company}</strong> as a <strong>${data.f_role}</strong>.</p>
-                <p style="line-height: 2; text-align: justify; font-size: 18px;">Their tenure with us was from <strong>${data.f_duration}</strong>. During their time with the company, we found them to be highly dedicated, professional, and hardworking.</p>
-                <br><br><br>
-                <p><strong>Authorized Signatory</strong><br>${data.f_company}</p>
-            `
+            render: (data) => `<h2>${data.f_company}</h2><p>This certifies that ${data.f_name} worked with us for ${data.f_duration}.</p>`
         },
         'job': {
             title: 'Job Application',
             fields: [
-                { id: 'f_name', label: 'Your Name & Contact Info', type: 'textarea' },
-                { id: 'f_hr', label: 'Hiring Manager Name & Company', type: 'textarea' },
-                { id: 'f_role', label: 'Position Applying For', type: 'text' },
-                { id: 'f_body', label: 'Cover Letter Body', type: 'textarea' },
-                { id: 'f_date', label: 'Date', type: 'text' }
+                { id: 'f_name', label: 'Your Name', type: 'text' },
+                { id: 'f_role', label: 'Position', type: 'text' },
+                { id: 'f_body', label: 'Cover Letter', type: 'textarea' }
             ],
-            render: (data) => `
-                <p><strong>${data.f_name.replace(/\n/g, '<br>')}</strong></p><br>
-                <p><strong>Date:</strong> ${data.f_date}</p><br>
-                <p><strong>To,</strong><br>${data.f_hr.replace(/\n/g, '<br>')}</p><br>
-                <p><strong>Subject: Application for the post of ${data.f_role}</strong></p><br>
-                <p><strong>Respected Hiring Manager,</strong></p>
-                <p style="white-space: pre-wrap; text-align: justify;">${data.f_body}</p><br>
-                <p><strong>Sincerely,</strong><br>${data.f_name.split('\n')[0]}</p>
-            `
+            render: (data) => `<p>${data.f_name}</p><p>Applying for: ${data.f_role}</p><p>${data.f_body}</p>`
         },
         'affidavit': {
             title: 'Affidavit Format',
             fields: [
                 { id: 'f_name', label: 'Deponent Name', type: 'text' },
-                { id: 'f_father', label: 'Father/Husband Name', type: 'text' },
-                { id: 'f_age', label: 'Age', type: 'text' },
-                { id: 'f_address', label: 'Full Address', type: 'textarea' },
-                { id: 'f_statement', label: 'Declaration Statements', type: 'textarea' }
+                { id: 'f_statement', label: 'Statement', type: 'textarea' }
             ],
-            render: (data) => `
-                <h2 style="text-align: center; text-decoration: underline; font-weight: bold;">AFFIDAVIT</h2><br>
-                <p style="line-height: 2; text-align: justify;">I, <strong>${data.f_name}</strong>, son/wife/daughter of <strong>${data.f_father}</strong>, aged about <strong>${data.f_age}</strong> years, residing at <strong>${data.f_address}</strong>, do hereby solemnly affirm and declare as under:</p>
-                <p style="white-space: pre-wrap; margin-top: 20px; text-align: justify; line-height: 1.8;">${data.f_statement}</p><br>
-                <p>I state that what is stated herein above is true and correct to the best of my knowledge.</p><br><br>
-                <p style="text-align: right; font-weight: bold;">DEPONENT</p>
-            `
+            render: (data) => `<h2>AFFIDAVIT</h2><p>I, ${data.f_name}, declare: ${data.f_statement}</p>`
         },
         'rent': {
-            title: 'Rent Agreement Format',
+            title: 'Rent Agreement',
             fields: [
-                { id: 'f_date', label: 'Agreement Date', type: 'text' },
                 { id: 'f_landlord', label: 'Landlord Name', type: 'text' },
                 { id: 'f_tenant', label: 'Tenant Name', type: 'text' },
-                { id: 'f_prop', label: 'Property Address', type: 'textarea' },
-                { id: 'f_rent', label: 'Monthly Rent Amount', type: 'text' }
+                { id: 'f_rent', label: 'Rent Amount', type: 'text' }
             ],
-            render: (data) => `
-                <h2 style="text-align: center; text-decoration: underline; font-weight: bold;">RENT AGREEMENT</h2><br>
-                <p style="line-height: 2; text-align: justify;">This Rent Agreement is made on <strong>${data.f_date}</strong>, between <strong>${data.f_landlord}</strong> (Landlord) and <strong>${data.f_tenant}</strong> (Tenant).</p>
-                <p style="line-height: 2; text-align: justify;">WHEREAS the Landlord is the absolute owner of the property located at <strong>${data.f_prop}</strong>.</p>
-                <p style="line-height: 2; text-align: justify;">The monthly rent for the premises is fixed at <strong>Rs. ${data.f_rent}</strong>.</p><br><br><br>
-                <div s
+            render: (data) => `<h2>RENT AGREEMENT</h2><p>Between ${data.f_landlord} and ${data.f_tenant}. Monthly Rent: Rs. ${data.f_rent}</p>`
+        }
+    };
+
+    let currentTool = '';
+
+    function openTool(tool) {
+        try {
+            currentTool = tool;
+            const config = toolConfigs[tool];
+            
+            document.getElementById('main-menu').classList.add('hidden');
+            document.getElementById('form-section').classList.remove('hidden');
+            document.getElementById('tool-title').innerText = config.title;
+
+            const inputsContainer = document.getElementById('dynamic-inputs');
+            inputsContainer.innerHTML = ''; 
+
+            config.fields.forEach(field => {
+                let inputElement = '';
+                if(field.type === 'textarea') {
+                    inputElement = `<textarea id="${field.id}" placeholder="${field.label}" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 h-28"></textarea>`;
+                } else {
+                    inputElement = `<input type="text" id="${field.id}" placeholder="${field.label}" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900">`;
+                }
+                inputsContainer.innerHTML += `<div><label class="block text-sm font-bold mb-1">${field.label}</label>${inputElement}</div>`;
+            });
+        } catch (err) {
+            alert("Error in App: " + err.message);
+        }
+    }
+
+    function backToMenu() {
+        document.getElementById('main-menu').classList.remove('hidden');
+        document.getElementById('form-section').classList.add('hidden');
+    }
+
+    function generateDoc() {
+        try {
+            const config = toolConfigs[currentTool];
+            let formData = {};
+            
+            config.fields.forEach(field => {
+                formData[field.id] = document.getElementById(field.id).value || '';
+            });
+
+            const finalHtml = config.render(formData);
+            const outputElement = document.getElementById('document-output');
+            outputElement.innerHTML = finalHtml;
+
+            html2pdf().set({ margin: 1, filename: config.title + '.pdf' }).from(outputElement).save();
+        } catch (err) {
+            alert("PDF Error: " + err.message);
+        }
+    }
+
+    function updateLanguage() {
+        // Simple language toggle logic
+        const lang = document.getElementById('langSelect').value;
+        const btnText = lang === 'hi' ? 'टूल खोलें' : (lang === 'mr' ? 'टूल उघडा' : 'Open Tool');
+        document.querySelectorAll('#main-menu button').forEach(btn => btn.innerText = btnText);
+    }
+    </script>
+</body>
+    </html>
+
