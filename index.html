@@ -167,11 +167,35 @@
     }
 
     function generateDoc() {
-        const name = document.getElementById('in1').value;
-        const sub = document.getElementById('in2').value;
-        const det = document.getElementById('in3').value;
-        alert("Document Generated for: " + name);
+    const name = document.getElementById('in1').value;
+    const sub = document.getElementById('in2').value;
+    const det = document.getElementById('in3').value;
+
+    if(!name || !sub || !det) {
+        alert("Bhai, pehle saari details bharo!");
+        return;
     }
+
+    document.getElementById('out-name').innerText = name;
+    document.getElementById('out-sub').innerText = sub;
+    document.getElementById('out-det').innerText = det;
+
+    const element = document.getElementById('resume-output');
+    element.style.display = 'block';
+
+    const options = {
+        margin: 0.5,
+        filename: name + '_Resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    html2pdf().set(options).from(element).save().then(() => {
+        element.style.display = 'none';
+    });
+    }
+        
 
     function updateLanguage() {
         const lang = document.getElementById('langSelect').value;
