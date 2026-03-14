@@ -100,7 +100,20 @@
             
             <div id="dynamic-inputs" class="space-y-4"></div>
             
-            <button onclick="generateDoc()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors mt-6">Generate Document</button>
+            <button onclick="previewDoc()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors mt-6">Preview Document</button>
+        </div>
+
+        <div id="preview-section" class="hidden mt-10 bg-white p-4 md:p-8 rounded-xl border border-gray-200 shadow-md">
+            
+            <div class="flex justify-between items-center mb-6">
+                <button onclick="backToForm()" class="text-blue-600 font-bold text-sm hover:underline">← Edit Details</button>
+                <button onclick="downloadPDF()" class="bg-green-600 text-white px-6 py-3 rounded-lg font-bold text-md hover:bg-green-700 shadow-md">⬇ Download PDF</button>
+            </div>
+            
+            <div class="overflow-x-auto border border-gray-300 rounded bg-gray-200 p-2 md:p-8">
+                <div id="document-preview" style="width: 800px; max-width: none; background: white; padding: 40px; margin: 0 auto; color: black; font-family: Arial, sans-serif; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    </div>
+            </div>
         </div>
     </div>
 
@@ -201,78 +214,94 @@
     let currentTool = '';
 
     function openTool(tool) {
-        try {
-            currentTool = tool;
-            const config = toolConfigs[tool];
-            
-            document.getElementById('main-menu').classList.add('hidden');
-            document.getElementById('form-section').classList.remove('hidden');
-            document.getElementById('tool-title').innerText = config.title;
+        currentTool = tool;
+        const config = toolConfigs[tool];
+        
+        document.getElementById('main-menu').classList.add('hidden');
+        document.getElementById('preview-section').classList.add('hidden');
+        document.getElementById('form-section').classList.remove('hidden');
+        document.getElementById('tool-title').innerText = config.title;
 
-            const inputsContainer = document.getElementById('dynamic-inputs');
-            inputsContainer.innerHTML = ''; 
+        const inputsContainer = document.getElementById('dynamic-inputs');
+        inputsContainer.innerHTML = ''; 
 
-            config.fields.forEach(field => {
-                let inputElement = '';
-                if(field.type === 'textarea') {
-                    inputElement = `<textarea id="${field.id}" placeholder="${field.label}" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 h-28"></textarea>`;
-                } else {
-                    inputElement = `<input type="text" id="${field.id}" placeholder="${field.label}" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900">`;
-                }
-                inputsContainer.innerHTML += `<div><label class="block text-sm font-bold mb-1">${field.label}</label>${inputElement}</div>`;
-            });
-        } catch (err) {
-            alert("Error in App: " + err.message);
-        }
+        config.fields.forEach(field => {
+            let inputElement = '';
+            if(field.type === 'textarea') {
+                inputElement = `<textarea id="${field.id}" placeholder="${field.label}" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 h-28"></textarea>`;
+            } else {
+                inputElement = `<input type="text" id="${field.id}" placeholder="${field.label}" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900">`;
+            }
+            inputsContainer.innerHTML += `<div><label class="block text-sm font-bold mb-1">${field.label}</label>${inputElement}</div>`;
+        });
+    }
+
+    function backToForm() {
+        document.getElementById('preview-section').classList.add('hidden');
+        document.getElementById('form-section').classList.remove('hidden');
     }
 
     function backToMenu() {
         document.getElementById('main-menu').classList.remove('hidden');
         document.getElementById('form-section').classList.add('hidden');
+        document.getElementById('preview-section').classList.add('hidden');
     }
 
-    function generateDoc() {
+    // Step 1: Preview Create Karein
+    function previewDoc() {
         try {
             const config = toolConfigs[currentTool];
             let formData = {};
+            let isValid = true;
             
             config.fields.forEach(field => {
-                formData[field.id] = document.getElementById(field.id).value || '';
+                const val = document.getElementById(field.id).value.trim();
+                if(!val) isValid = false;
+                formData[field.id] = val;
             });
 
-            // 1. HTML String Generate Karna
+            if(!isValid) {
+                alert("Please fill all details!");
+                return;
+            }
+
             const finalHtml = config.render(formData);
             
-            // 2. Memory mein ek naya, invisible box banana jo screen se link nahi hai
-            const printContent = document.createElement('div');
-            printContent.innerHTML = finalHtml;
-            printContent.style.padding = '40px';
-            printContent.style.fontFamily = 'Arial, sans-serif';
-            printContent.style.color = 'black';
-            printContent.style.background = 'white';
-
-            // 3. Direct box ko PDF banane bhej diya, bina screen ko chede!
-            const pdfOptions = {
-                margin: 0.5,
-                filename: config.title.replace(/\\s+/g, '_') + '.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-            };
-
-            html2pdf().set(pdfOptions).from(printContent).save();
+            // Preview box mein daalein
+            document.getElementById('document-preview').innerHTML = finalHtml;
+            
+            // Form chhupayein, Preview dikhayein
+            document.getElementById('form-section').classList.add('hidden');
+            document.getElementById('preview-section').classList.remove('hidden');
             
         } catch (err) {
-            alert("PDF Error: " + err.message);
+            alert("Preview Error: " + err.message);
         }
     }
 
-    function updateLanguage() {
-        const lang = document.getElementById('langSelect').value;
-        const btnText = lang === 'hi' ? 'टूल खोलें' : (lang === 'mr' ? 'टूल उघडा' : 'Open Tool');
-        document.querySelectorAll('#main-menu button').forEach(btn => btn.innerText = btnText);
-    }
-    </script>
-</body>
-                                                                                     </html>
-    
+    // Step 2: Download PDF Button ke liye (Aadha cut hone ka Permanent Fix)
+    function downloadPDF() {
+        try {
+            const element = document.getElementById('document-preview');
+            const config = toolConfigs[currentTool];
+            
+            const pdfOptions = {
+                margin: 0.5,
+                filename: config.title.replace(/\s+/g, '_') + '.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { 
+                    scale: 2, 
+                    useCORS: true,
+                    scrollY: 0, // IMPORTANT: Ye mobile screen cutoff theek karta hai
+                    windowWidth: element.scrollWidth
+                },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            // Loading Alert
+            const btn = document.querySelector('#preview-section button.bg-green-600');
+            const originalText = btn.innerText;
+            btn.innerText = "Downloading...";
+            btn.disabled = true;
+
+            html2p
