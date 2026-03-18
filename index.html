@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quick All Doc Pro | AI Document Generator</title>
     
-    <meta name="description" content="Quick All Doc Pro: Online Resume builder, Leave application, Police Complaint and Legal Document generator.">
-    <meta name="keywords" content="Quick All Doc Pro, Resume Builder, Leave Application format, Police Complaint application, Legal Notice format, Marathi document maker, Hindi document generator, professional resume maker, free online document generator, Vaijnath Shinde legacy">
+    <meta name="description" content="Quick All Doc Pro: Resume builder, Leave application, Police Complaint generator.">
+    <meta name="keywords" content="Quick All Doc Pro, Resume Builder, Marathi document maker, Hindi document generator">
     <meta name="google-site-verification" content="5_-qYd9IDpCL9oJlTMNBHlzwjm6uZVYLmWHr2A6rMFM" />
     
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="apple-touch-icon" href="Icon.png">
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CLSPYD6XKR"></script>
     <script>
@@ -33,15 +31,8 @@
             <img src="Icon.png" alt="Logo" class="h-10 w-10 rounded shadow-sm" onerror="this.style.display='none'">
             <h1 class="text-xl font-extrabold text-blue-600">Quick All Doc Pro</h1>
         </div>
-        
-        <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-600 mr-4">
-            <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
-            <a href="terms.html" class="hover:text-blue-600">Terms & Conditions</a>
-            <a href="contact.html" class="hover:text-blue-600">Contact Us</a>
-        </div>
-
-        <div class="flex items-center ml-auto md:ml-0">
-            <select id="langSelect" onchange="updateLanguage()" class="bg-gray-100 text-sm font-bold p-2 rounded border border-gray-300 outline-none cursor-pointer">
+        <div class="flex items-center ml-auto">
+            <select id="langSelect" onchange="updateLanguage()" class="bg-gray-100 text-sm font-bold p-2 rounded border border-gray-300">
                 <option value="en">English</option>
                 <option value="hi">Hindi</option>
                 <option value="mr">Marathi</option>
@@ -50,9 +41,9 @@
     </nav>
 
     <div class="max-w-5xl mx-auto p-4">
-        <header class="text-center my-10">
-            <h2 class="text-4xl font-black text-gray-900 mb-2 uppercase tracking-tight">Quick All Doc Pro</h2>
-            <p class="text-gray-500 text-sm italic">Legacy of Vaijnath Shinde | AI Tools (Updated)</p>
+        <header id="header-area" class="text-center my-10">
+            <h2 class="text-4xl font-black text-gray-900 mb-2">QUICK ALL DOC PRO</h2>
+            <p class="text-gray-500 text-sm italic">Legacy of Vaijnath Shinde | Professional Tools (Ver 2.0)</p>
         </header>
 
         <div id="main-menu" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -97,204 +88,91 @@
         <div id="form-section" class="hidden mt-10 bg-white p-8 rounded-xl border border-gray-200 shadow-md">
             <button onclick="backToMenu()" class="text-blue-600 font-bold text-sm mb-6 hover:underline">← Back to Menu</button>
             <h2 id="tool-title" class="text-2xl font-black text-gray-800 mb-6">Enter Details</h2>
-            
             <div id="dynamic-inputs" class="space-y-4"></div>
-            
-            <button onclick="previewDoc()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors mt-6">Preview & Download</button>
+            <button onclick="generatePreview()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg mt-6">Preview Document</button>
         </div>
 
         <div id="preview-section" class="hidden mt-10">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-6 bg-white p-4 rounded-xl shadow-sm border border-gray-200">
-                <button onclick="backToForm()" class="text-blue-600 font-bold text-md mb-4 md:mb-0 hover:underline">← Edit Details</button>
-                <button id="download-btn" onclick="downloadPDF()" class="bg-green-600 text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-green-700 shadow-md">⬇ Download PDF</button>
+            <div class="flex justify-between mb-4">
+                <button onclick="backToForm()" class="bg-gray-500 text-white px-4 py-2 rounded font-bold">Edit</button>
+                <button onclick="downloadPDF()" class="bg-green-600 text-white px-6 py-2 rounded font-bold">Download PDF</button>
             </div>
-            
-            <div class="overflow-x-auto w-full flex justify-center bg-gray-200 p-4 rounded-xl border border-gray-300">
-                <div id="document-preview" style="width: 100%; max-width: 800px; background: white; padding: 40px; color: black; font-family: Arial, sans-serif; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    </div>
-            </div>
+            <div id="pdf-area" class="bg-white p-10 border border-gray-300 shadow-lg text-black" style="min-height: 800px; font-family: serif;">
+                </div>
         </div>
     </div>
 
-    <footer class="p-10 bg-white mt-20 border-t border-gray-200 text-center">
-        <div class="flex justify-center space-x-6 mb-4 text-sm font-medium">
-            <a href="privacy.html" class="text-gray-600 hover:text-blue-600">Privacy Policy</a>
-            <a href="terms.html" class="text-gray-600 hover:text-blue-600">Terms & Conditions</a>
-            <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact Us</a>
+    <footer class="p-10 bg-white mt-20 border-t text-center">
+        <div class="flex justify-center space-x-4 mb-4 text-sm text-gray-600 font-bold">
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="contact.html">Contact</a>
         </div>
         <p class="text-gray-400 text-xs">© 2026 Quick All Doc Pro | Built by Yuvi Shinde</p>
     </footer>
 
     <script>
+    var currentTool = '';
     var toolConfigs = {
         'resume': {
             title: 'Resume Builder',
-            fields: [
-                { id: 'f_name', label: 'Full Name', type: 'text' },
-                { id: 'f_contact', label: 'Phone & Email', type: 'text' },
-                { id: 'f_edu', label: 'Education Details', type: 'textarea' },
-                { id: 'f_exp', label: 'Work Experience', type: 'textarea' }
-            ],
-            render: function(data) {
-                return '<h1 style="text-align: center; color: #1e3a8a; font-size: 32px; font-weight: bold; margin-bottom: 5px;">' + data.f_name + '</h1>' +
-                       '<p style="text-align: center; font-size: 16px;">' + data.f_contact + '</p>' +
-                       '<hr style="margin: 20px 0; border: 1px solid #ccc;">' +
-                       '<h3 style="color: #1e3a8a; font-size: 20px; font-weight: bold; margin-bottom: 10px;">Education</h3>' +
-                       '<p style="white-space: pre-wrap; font-size: 16px; margin-bottom: 20px;">' + data.f_edu + '</p>' +
-                       '<h3 style="color: #1e3a8a; font-size: 20px; font-weight: bold; margin-bottom: 10px;">Experience</h3>' +
-                       '<p style="white-space: pre-wrap; font-size: 16px;">' + data.f_exp + '</p>';
+            fields: ['Name', 'Email/Phone', 'Education', 'Experience'],
+            render: function(d) {
+                return '<h1 style="text-align:center; font-size:24px; font-weight:bold; border-bottom:2px solid #000; padding-bottom:10px;">' + d[0] + '</h1>' +
+                       '<p style="text-align:center;">' + d[1] + '</p><br>' +
+                       '<h3><b>EDUCATION</b></h3><p style="white-space:pre-wrap;">' + d[2] + '</p><br>' +
+                       '<h3><b>EXPERIENCE</b></h3><p style="white-space:pre-wrap;">' + d[3] + '</p>';
             }
         },
         'leave': {
             title: 'Leave Application',
-            fields: [
-                { id: 'f_to', label: 'To (e.g., The Principal)', type: 'text' },
-                { id: 'f_sub', label: 'Subject', type: 'text' },
-                { id: 'f_details', label: 'Reason for leave', type: 'textarea' }
-            ],
-            render: function(data) {
-                return '<p style="font-size: 16px;"><strong>To,</strong><br>' + data.f_to.replace(/\n/g, '<br>') + '</p><br>' +
-                       '<p style="font-size: 16px;"><strong>Subject: ' + data.f_sub + '</strong></p><br>' +
-                       '<p style="font-size: 16px;">Respected Sir/Madam,</p>' +
-                       '<p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">' + data.f_details + '</p><br><br>' +
-                       '<p style="font-size: 16px;">Yours faithfully,</p>';
+            fields: ['To (Principal/Manager)', 'Subject', 'Reason'],
+            render: function(d) {
+                return '<p>To,<br>' + d[0] + '</p><br><p><b>Subject: ' + d[1] + '</b></p><br><p>' + d[2] + '</p><br><p>Sincerely,</p>';
             }
         },
         'police': {
             title: 'Police Complaint',
-            fields: [
-                { id: 'f_station', label: 'Police Station Name', type: 'text' },
-                { id: 'f_sub', label: 'Subject', type: 'text' },
-                { id: 'f_details', label: 'Complaint Details', type: 'textarea' }
-            ],
-            render: function(data) {
-                return '<p style="font-size: 16px;"><strong>To,</strong><br>The Officer In-Charge,<br>' + data.f_station + '</p><br>' +
-                       '<p style="font-size: 16px;"><strong>Subject: ' + data.f_sub + '</strong></p><br>' +
-                       '<p style="font-size: 16px;">Respected Sir,</p>' +
-                       '<p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">' + data.f_details + '</p><br>' +
-                       '<p style="font-size: 16px;">Please register my complaint and take necessary action.</p><br><br>' +
-                       '<p style="font-size: 16px;">Signature:</p>';
-            }
-        },
-        'legal': {
-            title: 'Legal Notice',
-            fields: [
-                { id: 'f_client', label: 'Client Name', type: 'text' },
-                { id: 'f_sub', label: 'Subject', type: 'text' },
-                { id: 'f_details', label: 'Notice Details', type: 'textarea' }
-            ],
-            render: function(data) {
-                return '<h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 24px;">LEGAL NOTICE</h2><br>' +
-                       '<p style="font-size: 16px;">Under instructions from my client <strong>' + data.f_client + '</strong>, I issue this notice:</p><br>' +
-                       '<p style="font-size: 16px;"><strong>Subject: ' + data.f_sub + '</strong></p><br>' +
-                       '<p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">' + data.f_details + '</p><br><br>' +
-                       '<p style="font-size: 16px; font-weight: bold;">Advocate Signature</p>';
-            }
-        },
-        'tc': {
-            title: 'TC Application',
-            fields: [
-                { id: 'f_school', label: 'School Name', type: 'text' },
-                { id: 'f_name', label: 'Student Name', type: 'text' },
-                { id: 'f_reason', label: 'Reason for TC', type: 'textarea' }
-            ],
-            render: function(data) {
-                return '<p style="font-size: 16px;"><strong>To,</strong><br>The Principal,<br>' + data.f_school + '</p><br>' +
-                       '<p style="font-size: 16px;"><strong>Subject: Application for Transfer Certificate</strong></p><br>' +
-                       '<p style="font-size: 16px;">Respected Sir/Madam,</p>' +
-                       '<p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">I am ' + data.f_name + '. ' + data.f_reason + '</p><br>' +
-                       '<p style="font-size: 16px;">Kindly issue my TC.</p><br><br>' +
-                       '<p style="font-size: 16px;">Yours obediently,<br><strong>' + data.f_name + '</strong></p>';
-            }
-        },
-        'exp': {
-            title: 'Experience Certificate',
-            fields: [
-                { id: 'f_company', label: 'Company Name', type: 'text' },
-                { id: 'f_name', label: 'Employee Name', type: 'text' },
-                { id: 'f_duration', label: 'Duration', type: 'text' }
-            ],
-            render: function(data) {
-                return '<h1 style="text-align: center; font-weight: bold; font-size: 28px;">' + data.f_company + '</h1><hr style="margin: 20px 0; border: 1px solid #000;">' +
-                       '<h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 22px;">TO WHOMSOEVER IT MAY CONCERN</h2><br>' +
-                       '<p style="font-size: 18px; line-height: 1.8;">This is to certify that <strong>' + data.f_name + '</strong> was employed with us for a duration of <strong>' + data.f_duration + '</strong>.</p>' +
-                       '<p style="font-size: 18px; line-height: 1.8;">We found their work excellent and highly professional.</p><br><br><br>' +
-                       '<p style="font-size: 18px; font-weight: bold;">Authorized Signatory</p>';
-            }
-        },
-        'job': {
-            title: 'Job Application',
-            fields: [
-                { id: 'f_name', label: 'Your Name', type: 'text' },
-                { id: 'f_role', label: 'Position', type: 'text' },
-                { id: 'f_body', label: 'Cover Letter', type: 'textarea' }
-            ],
-            render: function(data) {
-                return '<p style="font-size: 16px;"><strong>' + data.f_name + '</strong></p><br>' +
-                       '<p style="font-size: 16px;"><strong>Subject: Application for ' + data.f_role + '</strong></p><br>' +
-                       '<p style="font-size: 16px;">Respected Hiring Manager,</p>' +
-                       '<p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">' + data.f_body + '</p><br><br>' +
-                       '<p style="font-size: 16px;">Sincerely,<br><strong>' + data.f_name + '</strong></p>';
-            }
-        },
-        'affidavit': {
-            title: 'Affidavit Format',
-            fields: [
-                { id: 'f_name', label: 'Deponent Name', type: 'text' },
-                { id: 'f_statement', label: 'Statement', type: 'textarea' }
-            ],
-            render: function(data) {
-                return '<h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 24px;">AFFIDAVIT</h2><br>' +
-                       '<p style="font-size: 16px; line-height: 1.6;">I, <strong>' + data.f_name + '</strong>, do hereby solemnly affirm and declare as under:</p>' +
-                       '<p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.8;">' + data.f_statement + '</p><br>' +
-                       '<p style="font-size: 16px;">Verified that the above is true and correct.</p><br><br><br>' +
-                       '<p style="text-align: right; font-size: 16px; font-weight: bold;">DEPONENT</p>';
-            }
-        },
-        'rent': {
-            title: 'Rent Agreement',
-            fields: [
-                { id: 'f_landlord', label: 'Landlord Name', type: 'text' },
-                { id: 'f_tenant', label: 'Tenant Name', type: 'text' },
-                { id: 'f_rent', label: 'Rent Amount', type: 'text' }
-            ],
-            render: function(data) {
-                return '<h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 24px;">RENT AGREEMENT</h2><br>' +
-                       '<p style="line-height: 1.8; font-size: 16px;">This Agreement is made between <strong>' + data.f_landlord + '</strong> (Landlord) and <strong>' + data.f_tenant + '</strong> (Tenant).</p>' +
-                       '<p style="line-height: 1.8; font-size: 16px;">The monthly rent is fixed at <strong>Rs. ' + data.f_rent + '</strong>.</p><br><br><br><br>' +
-                       '<table style="width: 100%; font-size: 16px;"><tr><td><strong>Landlord Signature</strong></td><td style="text-align: right;"><strong>Tenant Signature</strong></td></tr></table>';
+            fields: ['Police Station', 'Subject', 'Complaint Details'],
+            render: function(d) {
+                return '<p>To,<br>The Officer In-Charge,<br>' + d[0] + '</p><br><p><b>Subject: ' + d[1] + '</b></p><br><p>' + d[2] + '</p><br><p>Date: ________</p>';
             }
         }
+        // Add others as needed following the same pattern
     };
 
-    var currentTool = '';
-
     function openTool(tool) {
-        try {
-            currentTool = tool;
-            var config = toolConfigs[tool];
-            
-            document.getElementById('main-menu').classList.add('hidden');
-            document.getElementById('preview-section').classList.add('hidden');
-            document.getElementById('form-section').classList.remove('hidden');
-            document.getElementById('tool-title').innerText = config.title;
+        currentTool = tool;
+        var config = toolConfigs[tool] || {title: tool, fields: ['Full Name', 'Subject', 'Details'], render: function(d){ return '<h1>'+d[0]+'</h1><h3>'+d[1]+'</h3><p>'+d[2]+'</p>'; }};
+        
+        document.getElementById('main-menu').classList.add('hidden');
+        document.getElementById('form-section').classList.remove('hidden');
+        document.getElementById('tool-title').innerText = config.title;
 
-            var inputsContainer = document.getElementById('dynamic-inputs');
-            inputsContainer.innerHTML = ''; 
-
-            for(var i=0; i<config.fields.length; i++) {
-                var field = config.fields[i];
-                var inputHtml = '';
-                if(field.type === 'textarea') {
-                    inputHtml = '<textarea id="' + field.id + '" placeholder="' + field.label + '" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 h-28"></textarea>';
-                } else {
-                    inputHtml = '<input type="text" id="' + field.id + '" placeholder="' + field.label + '" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900">';
-                }
-                inputsContainer.innerHTML += '<div><label class="block text-sm font-bold mb-1">' + field.label + '</label>' + inputHtml + '</div>';
-            }
-        } catch(e) {
-            alert("Open Tool Error: " + e.message);
+        var container = document.getElementById('dynamic-inputs');
+        container.innerHTML = '';
+        for(var i=0; i<config.fields.length; i++) {
+            container.innerHTML += '<label class="block font-bold text-sm">' + config.fields[i] + '</label>' +
+                                   '<textarea id="inp-' + i + '" class="w-full p-2 border rounded mb-2 bg-gray-50 h-20"></textarea>';
         }
+    }
+
+    function generatePreview() {
+        var config = toolConfigs[currentTool] || {render: function(d){ return d[0]; }};
+        var data = [];
+        var inputs = document.querySelectorAll('#dynamic-inputs textarea');
+        for(var i=0; i<inputs.length; i++) { data.push(inputs[i].value); }
+
+        document.getElementById('pdf-area').innerHTML = config.render(data);
+        document.getElementById('form-section').classList.add('hidden');
+        document.getElementById('preview-section').classList.remove('hidden');
+        window.scrollTo(0,0);
+    }
+
+    function downloadPDF() {
+        var element = document.getElementById('pdf-area');
+        var opt = { margin: 0.5, filename: currentTool + '.pdf', image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' } };
+        html2pdf().set(opt).from(element).save();
     }
 
     function backToForm() {
@@ -303,13 +181,16 @@
     }
 
     function backToMenu() {
-        document.getElementById('main-menu').classList.remove('hidden');
         document.getElementById('form-section').classList.add('hidden');
-        document.getElementById('preview-section').classList.add('hidden');
+        document.getElementById('main-menu').classList.remove('hidden');
     }
 
-    function previewDoc() {
-        try {
-            var config = toolConfigs[currentTool];
-            var formData = {};
- 
+    function updateLanguage() {
+        var lang = document.getElementById('langSelect').value;
+        var txt = lang === 'hi' ? 'टूल खोलें' : (lang === 'mr' ? 'टूल उघडा' : 'Open Tool');
+        var btns = document.querySelectorAll('#main-menu button');
+        for(var i=0; i<btns.length; i++) { btns[i].innerText = txt; }
+    }
+    </script>
+</body>
+</html>
