@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quick All Doc Pro | AI Document Generator</title>
     
-    <meta name="description" content="Quick All Doc Pro is a free online tool to generate professional Resume, Leave Application, Police Complaint, Legal Notice, TC Application, Experience Certificate, Job Application, Affidavit, and Rent Agreement in English, Hindi, and Marathi.">
-    <meta name="keywords" content="Quick All Doc Pro, Resume Builder Marathi, Leave Application Hindi, Application generator, Marathi document maker, Police complaint format in Hindi, Legal Notice format India, TC application format for school, Job Experience Certificate generator, Job application cover letter maker, Affidavit format generator, Rent agreement format maker, free online document maker, Vaijnath Shinde legacy, Yuvraj Shinde app, professional resume maker">
+    <meta name="description" content="Quick All Doc Pro: Online Resume builder, Leave application, Police Complaint and Legal Document generator.">
+    <meta name="keywords" content="Quick All Doc Pro, Resume Builder, Leave Application format, Police Complaint application, Legal Notice format, Marathi document maker, Hindi document generator, professional resume maker, free online document generator, Vaijnath Shinde legacy">
     <meta name="google-site-verification" content="5_-qYd9IDpCL9oJlTMNBHlzwjm6uZVYLmWHr2A6rMFM" />
     
     <link rel="manifest" href="manifest.json">
@@ -100,20 +100,12 @@
             
             <div id="dynamic-inputs" class="space-y-4"></div>
             
-            <button onclick="previewDoc()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors mt-6">Preview Document</button>
+            <button onclick="generateDoc()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors mt-6">Download Document</button>
         </div>
+    </div>
 
-        <div id="preview-section" class="hidden mt-10 bg-white p-4 md:p-8 rounded-xl border border-gray-200 shadow-md">
-            <div class="flex justify-between items-center mb-6">
-                <button onclick="backToForm()" class="text-blue-600 font-bold text-sm hover:underline">← Edit Details</button>
-                <button id="download-btn" onclick="downloadPDF()" class="bg-green-600 text-white px-6 py-3 rounded-lg font-bold text-md hover:bg-green-700 shadow-md">⬇ Download PDF</button>
-            </div>
-            
-            <div class="overflow-x-auto border border-gray-300 rounded bg-gray-200 p-2 md:p-8">
-                <div id="document-preview" style="width: 800px; max-width: none; background: white; padding: 40px; margin: 0 auto; color: black; font-family: Arial, sans-serif; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    </div>
-            </div>
-        </div>
+    <div style="position: absolute; left: -9999px; top: 0;">
+        <div id="document-output" style="width: 800px; padding: 40px; background: white; color: black; font-family: Arial, sans-serif;"></div>
     </div>
 
     <footer class="p-10 bg-white mt-20 border-t border-gray-200 text-center">
@@ -135,15 +127,7 @@
                 { id: 'f_edu', label: 'Education Details', type: 'textarea' },
                 { id: 'f_exp', label: 'Work Experience', type: 'textarea' }
             ],
-            render: (d) => `
-                <h1 style="text-align: center; color: #1e3a8a; font-size: 32px; font-weight: bold; margin-bottom: 5px;">${d.f_name}</h1>
-                <p style="text-align: center; font-size: 16px;">${d.f_contact}</p>
-                <hr style="margin: 20px 0; border: 1px solid #ccc;">
-                <h3 style="color: #1e3a8a; font-size: 20px; font-weight: bold; margin-bottom: 10px;">Education</h3>
-                <p style="white-space: pre-wrap; font-size: 16px; margin-bottom: 20px;">${d.f_edu}</p>
-                <h3 style="color: #1e3a8a; font-size: 20px; font-weight: bold; margin-bottom: 10px;">Experience</h3>
-                <p style="white-space: pre-wrap; font-size: 16px;">${d.f_exp}</p>
-            `
+            render: (data) => `<h1 style="text-align: center; font-size: 32px; font-weight: bold;">${data.f_name}</h1><p style="text-align: center; font-size: 16px;">${data.f_contact}</p><hr style="margin: 20px 0; border: 1px solid #000;"><h3 style="font-size: 20px; font-weight: bold;">Education</h3><p style="white-space: pre-wrap; font-size: 16px; margin-bottom: 20px;">${data.f_edu}</p><h3 style="font-size: 20px; font-weight: bold;">Experience</h3><p style="white-space: pre-wrap; font-size: 16px;">${data.f_exp}</p>`
         },
         'leave': {
             title: 'Leave Application',
@@ -152,13 +136,7 @@
                 { id: 'f_sub', label: 'Subject', type: 'text' },
                 { id: 'f_details', label: 'Reason for leave', type: 'textarea' }
             ],
-            render: (d) => `
-                <p style="font-size: 16px;"><strong>To,</strong><br>${d.f_to.replace(/\\n/g, '<br>')}</p><br>
-                <p style="font-size: 16px;"><strong>Subject: ${d.f_sub}</strong></p><br>
-                <p style="font-size: 16px;">Respected Sir/Madam,</p>
-                <p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">${d.f_details}</p><br><br>
-                <p style="font-size: 16px;">Yours faithfully,</p>
-            `
+            render: (data) => `<p style="font-size: 16px;"><strong>To,</strong><br>${data.f_to.replace(/\\n/g, '<br>')}</p><br><p style="font-size: 16px;"><strong>Subject: ${data.f_sub}</strong></p><br><p style="font-size: 16px;">Respected Sir/Madam,</p><p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">${data.f_details}</p><br><br><p style="font-size: 16px;">Yours faithfully,</p>`
         },
         'police': {
             title: 'Police Complaint',
@@ -167,14 +145,7 @@
                 { id: 'f_sub', label: 'Subject', type: 'text' },
                 { id: 'f_details', label: 'Complaint Details', type: 'textarea' }
             ],
-            render: (d) => `
-                <p style="font-size: 16px;"><strong>To,</strong><br>The Officer In-Charge,<br>${d.f_station}</p><br>
-                <p style="font-size: 16px;"><strong>Subject: ${d.f_sub}</strong></p><br>
-                <p style="font-size: 16px;">Respected Sir,</p>
-                <p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">${d.f_details}</p><br>
-                <p style="font-size: 16px;">Please register my complaint and take necessary action.</p><br><br>
-                <p style="font-size: 16px;">Signature:</p>
-            `
+            render: (data) => `<p style="font-size: 16px;"><strong>To,</strong><br>The Officer In-Charge,<br>${data.f_station}</p><br><p style="font-size: 16px;"><strong>Subject: ${data.f_sub}</strong></p><br><p style="font-size: 16px;">Respected Sir,</p><p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">${data.f_details}</p><br><p style="font-size: 16px;">Please register my complaint and take necessary action.</p><br><br><p style="font-size: 16px;">Signature:</p>`
         },
         'legal': {
             title: 'Legal Notice',
@@ -183,13 +154,7 @@
                 { id: 'f_sub', label: 'Subject', type: 'text' },
                 { id: 'f_details', label: 'Notice Details', type: 'textarea' }
             ],
-            render: (d) => `
-                <h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 24px;">LEGAL NOTICE</h2><br>
-                <p style="font-size: 16px;">Under instructions from my client <strong>${d.f_client}</strong>, I issue this notice:</p><br>
-                <p style="font-size: 16px;"><strong>Subject: ${d.f_sub}</strong></p><br>
-                <p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">${d.f_details}</p><br><br>
-                <p style="font-size: 16px; font-weight: bold;">Advocate Signature</p>
-            `
+            render: (data) => `<h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 24px;">LEGAL NOTICE</h2><br><p style="font-size: 16px;">Under instructions from my client <strong>${data.f_client}</strong>, I issue this notice:</p><br><p style="font-size: 16px;"><strong>Subject: ${data.f_sub}</strong></p><br><p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">${data.f_details}</p><br><br><p style="font-size: 16px; font-weight: bold;">Advocate Signature</p>`
         },
         'tc': {
             title: 'TC Application',
@@ -198,14 +163,7 @@
                 { id: 'f_name', label: 'Student Name', type: 'text' },
                 { id: 'f_reason', label: 'Reason for TC', type: 'textarea' }
             ],
-            render: (d) => `
-                <p style="font-size: 16px;"><strong>To,</strong><br>The Principal,<br>${d.f_school}</p><br>
-                <p style="font-size: 16px;"><strong>Subject: Application for Transfer Certificate</strong></p><br>
-                <p style="font-size: 16px;">Respected Sir/Madam,</p>
-                <p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">I am ${d.f_name}. ${d.f_reason}</p><br>
-                <p style="font-size: 16px;">Kindly issue my TC.</p><br><br>
-                <p style="font-size: 16px;">Yours obediently,<br><strong>${d.f_name}</strong></p>
-            `
+            render: (data) => `<p style="font-size: 16px;"><strong>To,</strong><br>The Principal,<br>${data.f_school}</p><br><p style="font-size: 16px;"><strong>Subject: Application for Transfer Certificate</strong></p><br><p style="font-size: 16px;">Respected Sir/Madam,</p><p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">I am ${data.f_name}. ${data.f_reason}</p><br><p style="font-size: 16px;">Kindly issue my TC.</p><br><br><p style="font-size: 16px;">Yours obediently,<br><strong>${data.f_name}</strong></p>`
         },
         'exp': {
             title: 'Experience Certificate',
@@ -214,13 +172,7 @@
                 { id: 'f_name', label: 'Employee Name', type: 'text' },
                 { id: 'f_duration', label: 'Duration', type: 'text' }
             ],
-            render: (d) => `
-                <h1 style="text-align: center; font-weight: bold; font-size: 28px;">${d.f_company}</h1><hr style="margin: 20px 0; border: 1px solid #000;">
-                <h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 22px;">TO WHOMSOEVER IT MAY CONCERN</h2><br>
-                <p style="font-size: 18px; line-height: 1.8;">This is to certify that <strong>${d.f_name}</strong> was employed with us for a duration of <strong>${d.f_duration}</strong>.</p>
-                <p style="font-size: 18px; line-height: 1.8;">We found their work excellent and highly professional.</p><br><br><br>
-                <p style="font-size: 18px; font-weight: bold;">Authorized Signatory</p>
-            `
+            render: (data) => `<h1 style="text-align: center; font-weight: bold; font-size: 28px;">${data.f_company}</h1><hr style="margin: 20px 0; border: 1px solid #000;"><h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 22px;">TO WHOMSOEVER IT MAY CONCERN</h2><br><p style="font-size: 18px; line-height: 1.8;">This is to certify that <strong>${data.f_name}</strong> was employed with us for a duration of <strong>${data.f_duration}</strong>.</p><p style="font-size: 18px; line-height: 1.8;">We found their work excellent and highly professional.</p><br><br><br><p style="font-size: 18px; font-weight: bold;">Authorized Signatory</p>`
         },
         'job': {
             title: 'Job Application',
@@ -229,13 +181,7 @@
                 { id: 'f_role', label: 'Position', type: 'text' },
                 { id: 'f_body', label: 'Cover Letter', type: 'textarea' }
             ],
-            render: (d) => `
-                <p style="font-size: 16px;"><strong>${d.f_name}</strong></p><br>
-                <p style="font-size: 16px;"><strong>Subject: Application for ${d.f_role}</strong></p><br>
-                <p style="font-size: 16px;">Respected Hiring Manager,</p>
-                <p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">${d.f_body}</p><br><br>
-                <p style="font-size: 16px;">Sincerely,<br><strong>${d.f_name}</strong></p>
-            `
+            render: (data) => `<p style="font-size: 16px;"><strong>${data.f_name}</strong></p><br><p style="font-size: 16px;"><strong>Subject: Application for ${data.f_role}</strong></p><br><p style="font-size: 16px;">Respected Hiring Manager,</p><p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">${data.f_body}</p><br><br><p style="font-size: 16px;">Sincerely,<br><strong>${data.f_name}</strong></p>`
         },
         'affidavit': {
             title: 'Affidavit Format',
@@ -243,13 +189,7 @@
                 { id: 'f_name', label: 'Deponent Name', type: 'text' },
                 { id: 'f_statement', label: 'Statement', type: 'textarea' }
             ],
-            render: (d) => `
-                <h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 24px;">AFFIDAVIT</h2><br>
-                <p style="font-size: 16px; line-height: 1.6;">I, <strong>${d.f_name}</strong>, do hereby solemnly affirm and declare as under:</p>
-                <p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.8;">${d.f_statement}</p><br>
-                <p style="font-size: 16px;">Verified that the above is true and correct.</p><br><br><br>
-                <p style="text-align: right; font-size: 16px; font-weight: bold;">DEPONENT</p>
-            `
+            render: (data) => `<h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 24px;">AFFIDAVIT</h2><br><p style="font-size: 16px; line-height: 1.6;">I, <strong>${data.f_name}</strong>, do hereby solemnly affirm and declare as under:</p><p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.8;">${data.f_statement}</p><br><p style="font-size: 16px;">Verified that the above is true and correct.</p><br><br><br><p style="text-align: right; font-size: 16px; font-weight: bold;">DEPONENT</p>`
         },
         'rent': {
             title: 'Rent Agreement',
@@ -258,68 +198,44 @@
                 { id: 'f_tenant', label: 'Tenant Name', type: 'text' },
                 { id: 'f_rent', label: 'Rent Amount', type: 'text' }
             ],
-            render: (d) => `
-                <h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 24px;">RENT AGREEMENT</h2><br>
-                <p style="line-height: 1.8; font-size: 16px;">This Agreement is made between <strong>${d.f_landlord}</strong> (Landlord) and <strong>${d.f_tenant}</strong> (Tenant).</p>
-                <p style="line-height: 1.8; font-size: 16px;">The monthly rent is fixed at <strong>Rs. ${d.f_rent}</strong>.</p><br><br><br><br>
-                <table style="width: 100%; font-size: 16px;"><tr><td><strong>Landlord Signature</strong></td><td style="text-align: right;"><strong>Tenant Signature</strong></td></tr></table>
-            `
+            render: (data) => `<h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 24px;">RENT AGREEMENT</h2><br><p style="line-height: 1.8; font-size: 16px;">This Agreement is made between <strong>${data.f_landlord}</strong> (Landlord) and <strong>${data.f_tenant}</strong> (Tenant).</p><p style="line-height: 1.8; font-size: 16px;">The monthly rent is fixed at <strong>Rs. ${data.f_rent}</strong>.</p><br><br><br><br><table style="width: 100%; font-size: 16px;"><tr><td><strong>Landlord Signature</strong></td><td style="text-align: right;"><strong>Tenant Signature</strong></td></tr></table>`
         }
     };
 
     let currentTool = '';
 
     function openTool(tool) {
-        currentTool = tool;
-        const config = toolConfigs[tool];
-        
-        document.getElementById('main-menu').classList.add('hidden');
-        document.getElementById('preview-section').classList.add('hidden');
-        document.getElementById('form-section').classList.remove('hidden');
-        document.getElementById('tool-title').innerText = config.title;
+        try {
+            currentTool = tool;
+            const config = toolConfigs[tool];
+            
+            document.getElementById('main-menu').classList.add('hidden');
+            document.getElementById('form-section').classList.remove('hidden');
+            document.getElementById('tool-title').innerText = config.title;
 
-        const inputsContainer = document.getElementById('dynamic-inputs');
-        inputsContainer.innerHTML = ''; 
+            const inputsContainer = document.getElementById('dynamic-inputs');
+            inputsContainer.innerHTML = ''; 
 
-        config.fields.forEach(field => {
-            let inputHtml = '';
-            if(field.type === 'textarea') {
-                inputHtml = `<textarea id="${field.id}" placeholder="${field.label}" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 h-28"></textarea>`;
-            } else {
-                inputHtml = `<input type="text" id="${field.id}" placeholder="${field.label}" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900">`;
-            }
-            inputsContainer.innerHTML += `<div><label class="block text-sm font-bold mb-1">${field.label}</label>${inputHtml}</div>`;
-        });
-    }
-
-    function backToForm() {
-        document.getElementById('preview-section').classList.add('hidden');
-        document.getElementById('form-section').classList.remove('hidden');
+            config.fields.forEach(field => {
+                let inputElement = '';
+                if(field.type === 'textarea') {
+                    inputElement = `<textarea id="${field.id}" placeholder="${field.label}" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 h-28"></textarea>`;
+                } else {
+                    inputElement = `<input type="text" id="${field.id}" placeholder="${field.label}" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900">`;
+                }
+                inputsContainer.innerHTML += `<div><label class="block text-sm font-bold mb-1">${field.label}</label>${inputElement}</div>`;
+            });
+        } catch (err) {
+            alert("Error in App: " + err.message);
+        }
     }
 
     function backToMenu() {
         document.getElementById('main-menu').classList.remove('hidden');
         document.getElementById('form-section').classList.add('hidden');
-        document.getElementById('preview-section').classList.add('hidden');
     }
 
-    function previewDoc() {
-        const config = toolConfigs[currentTool];
-        let formData = {};
-        
-        config.fields.forEach(field => {
-            formData[field.id] = document.getElementById(field.id).value || '';
-        });
-
-        const finalHtml = config.render(formData);
-        
-        document.getElementById('document-preview').innerHTML = finalHtml;
-        document.getElementById('form-section').classList.add('hidden');
-        document.getElementById('preview-section').classList.remove('hidden');
-    }
-
-    // Yahan PDF ki problem humesha ke liye theek ki gayi hai
-    function downloadPDF() {
+    function generateDoc() {
         try {
             const config = toolConfigs[currentTool];
             let formData = {};
@@ -328,4 +244,35 @@
                 formData[field.id] = document.getElementById(field.id).value || '';
             });
 
-            c
+            const finalHtml = config.render(formData);
+            const outputElement = document.getElementById('document-output');
+            outputElement.innerHTML = finalHtml;
+
+            // Yahan par screen height cut hone ka ilaaj kar diya hai
+            const pdfOptions = {
+                margin: 0.5,
+                filename: config.title.replace(/\s+/g, '_') + '.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { 
+                    scale: 2, 
+                    windowWidth: 800, 
+                    windowHeight: outputElement.scrollHeight // Is line se aadha cut hona band ho jayega
+                },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(pdfOptions).from(outputElement).save();
+        } catch (err) {
+            alert("PDF Error: " + err.message);
+        }
+    }
+
+    function updateLanguage() {
+        const lang = document.getElementById('langSelect').value;
+        const btnText = lang === 'hi' ? 'टूल खोलें' : (lang === 'mr' ? 'टूल उघडा' : 'Open Tool');
+        document.querySelectorAll('#main-menu button').forEach(btn => btn.innerText = btnText);
+    }
+    </script>
+</body>
+    </html>
+    
