@@ -1,75 +1,331 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Quick All Doc Pro | Resume, Leave, Police Complaint, Legal Docs Generator</title>
-
-<meta name="description" content="Free online document generator: Resume builder, Leave application, Police complaint, Legal notice, TC, Rent agreement, Affidavit and more. Hindi & Marathi supported.">
-
-<meta name="keywords" content="resume builder free india, online resume maker hindi marathi, leave application format pdf, police complaint letter format india, legal notice format india pdf, job application letter generator, experience certificate format india, tc application format school, rent agreement format india, affidavit format india pdf, document generator tool online free, quick all doc pro app, resume builder without login, pdf document maker free india, marathi document generator, hindi application writer online">
-
-<meta name="robots" content="index, follow">
-
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#ffffff">
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CLSPYD6XKR"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-CLSPYD6XKR');
-</script>
-
-<meta name="google-adsense-account" content="ca-pub-7650854652135464">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7650854652135464" crossorigin="anonymous"></script>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick All Doc Pro | AI Document Generator</title>
+    
+    <meta name="description" content="Quick All Doc Pro is a free online tool to generate professional Resume, Leave Application, Police Complaint, Legal Notice, TC Application, Experience Certificate, Job Application, Affidavit, and Rent Agreement in English, Hindi, and Marathi.">
+    <meta name="keywords" content="Quick All Doc Pro, Resume Builder Marathi, Leave Application Hindi, Application generator, Marathi document maker, Police complaint format in Hindi, Legal Notice format India, TC application format for school, Job Experience Certificate generator, Job application cover letter maker, Affidavit format generator, Rent agreement format maker, free online document maker, Vaijnath Shinde legacy, Yuvraj Shinde app, professional resume maker">
+    <meta name="google-site-verification" content="5_-qYd9IDpCL9oJlTMNBHlzwjm6uZVYLmWHr2A6rMFM" />
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" href="Icon.png">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CLSPYD6XKR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CLSPYD6XKR');
+    </script>
+    <meta name="google-adsense-account" content="ca-pub-7650854652135464">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7650854652135464" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
+<body class="bg-gray-50 text-gray-900 font-sans">
 
-<body>
+    <nav class="p-4 bg-white shadow-sm flex justify-between items-center border-b border-gray-200">
+        <div class="flex items-center space-x-3">
+            <img src="Icon.png" alt="Logo" class="h-10 w-10 rounded shadow-sm" onerror="this.style.display='none'">
+            <h1 class="text-xl font-extrabold text-blue-600">Quick All Doc Pro</h1>
+        </div>
+        
+        <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-600 mr-4">
+            <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
+            <a href="terms.html" class="hover:text-blue-600">Terms & Conditions</a>
+            <a href="contact.html" class="hover:text-blue-600">Contact Us</a>
+        </div>
 
-<!-- SAME UI (unchanged) -->
+        <div class="flex items-center ml-auto md:ml-0">
+            <select id="langSelect" onchange="updateLanguage()" class="bg-gray-100 text-sm font-bold p-2 rounded border border-gray-300 outline-none cursor-pointer">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="mr">Marathi</option>
+            </select>
+        </div>
+    </nav>
 
-<script>
-let currentTool = '';
+    <div class="max-w-5xl mx-auto p-4">
+        <header class="text-center my-10">
+            <h2 class="text-4xl font-black text-gray-900 mb-2 uppercase tracking-tight">Quick All Doc Pro</h2>
+            <p class="text-gray-500 text-sm italic">Legacy of Vaijnath Shinde | Professional Tools</p>
+        </header>
 
-function openTool(tool) {
-    currentTool = tool;
-    alert("Tool Open: " + tool); // DEBUG (remove later)
-}
+        <div id="main-menu" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <h3 class="font-bold text-lg mb-2 text-blue-600">📄 Resume Builder</h3>
+                <button onclick="openTool('resume')" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <h3 class="font-bold text-lg mb-2 text-green-600">📝 Leave Application</h3>
+                <button onclick="openTool('leave')" class="w-full bg-green-600 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <h3 class="font-bold text-lg mb-2 text-red-600">🚨 Police Complaint</h3>
+                <button onclick="openTool('police')" class="w-full bg-red-600 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <h3 class="font-bold text-lg mb-2 text-purple-600">⚖️ Legal Notice</h3>
+                <button onclick="openTool('legal')" class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <h3 class="font-bold text-lg mb-2 text-yellow-600">🎓 TC Application</h3>
+                <button onclick="openTool('tc')" class="w-full bg-yellow-500 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <h3 class="font-bold text-lg mb-2 text-pink-600">💼 Job Experience</h3>
+                <button onclick="openTool('exp')" class="w-full bg-pink-600 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <h3 class="font-bold text-lg mb-2 text-indigo-600">📨 Job Application</h3>
+                <button onclick="openTool('job')" class="w-full bg-indigo-600 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <h3 class="font-bold text-lg mb-2 text-orange-600">📜 Affidavit Format</h3>
+                <button onclick="openTool('affidavit')" class="w-full bg-orange-500 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <h3 class="font-bold text-lg mb-2 text-teal-600">🏠 Rent Agreement</h3>
+                <button onclick="openTool('rent')" class="w-full bg-teal-600 text-white py-2 rounded-lg font-bold text-sm mt-4">Open Tool</button>
+            </div>
+        </div>
 
-function previewDoc() {
-    alert("Preview working"); // DEBUG
-}
+        <div id="form-section" class="hidden mt-10 bg-white p-8 rounded-xl border border-gray-200 shadow-md">
+            <button onclick="backToMenu()" class="text-blue-600 font-bold text-sm mb-6 hover:underline">← Back to Menu</button>
+            <h2 id="tool-title" class="text-2xl font-black text-gray-800 mb-6">Enter Details</h2>
+            
+            <div id="dynamic-inputs" class="space-y-4"></div>
+            
+            <button onclick="previewDoc()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors mt-6">Preview Document</button>
+        </div>
 
-/* ✅ FINAL FIXED FUNCTION */
-function downloadPDF() {
-    try {
-        const element = document.createElement("div");
-        element.innerHTML = "<h1>Test PDF</h1>";
+        <div id="preview-section" class="hidden mt-10 bg-white p-4 md:p-8 rounded-xl border border-gray-200 shadow-md">
+            <div class="flex justify-between items-center mb-6">
+                <button onclick="backToForm()" class="text-blue-600 font-bold text-sm hover:underline">← Edit Details</button>
+                <button id="download-btn" onclick="downloadPDF()" class="bg-green-600 text-white px-6 py-3 rounded-lg font-bold text-md hover:bg-green-700 shadow-md">⬇ Download PDF</button>
+            </div>
+            
+            <div class="overflow-x-auto border border-gray-300 rounded bg-gray-200 p-2 md:p-8">
+                <div id="document-preview" style="width: 800px; max-width: none; background: white; padding: 40px; margin: 0 auto; color: black; font-family: Arial, sans-serif; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    </div>
+            </div>
+        </div>
+    </div>
 
-        const btn = document.querySelector('button');
-        btn.innerText = "Downloading...";
-        btn.disabled = true;
+    <footer class="p-10 bg-white mt-20 border-t border-gray-200 text-center">
+        <div class="flex justify-center space-x-6 mb-4 text-sm font-medium">
+            <a href="privacy.html" class="text-gray-600 hover:text-blue-600">Privacy Policy</a>
+            <a href="terms.html" class="text-gray-600 hover:text-blue-600">Terms & Conditions</a>
+            <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact Us</a>
+        </div>
+        <p class="text-gray-400 text-xs">© 2026 Quick All Doc Pro | Built by Yuvi Shinde</p>
+    </footer>
 
-        html2pdf().from(element).save().then(() => {
-            btn.innerText = "Download PDF";
-            btn.disabled = false;
-        }).catch(() => {
-            btn.innerText = "Download Failed";
-            btn.disabled = false;
+    <script>
+    const toolConfigs = {
+        'resume': {
+            title: 'Resume Builder',
+            fields: [
+                { id: 'f_name', label: 'Full Name', type: 'text' },
+                { id: 'f_contact', label: 'Phone & Email', type: 'text' },
+                { id: 'f_edu', label: 'Education Details', type: 'textarea' },
+                { id: 'f_exp', label: 'Work Experience', type: 'textarea' }
+            ],
+            render: (d) => `
+                <h1 style="text-align: center; color: #1e3a8a; font-size: 32px; font-weight: bold; margin-bottom: 5px;">${d.f_name}</h1>
+                <p style="text-align: center; font-size: 16px;">${d.f_contact}</p>
+                <hr style="margin: 20px 0; border: 1px solid #ccc;">
+                <h3 style="color: #1e3a8a; font-size: 20px; font-weight: bold; margin-bottom: 10px;">Education</h3>
+                <p style="white-space: pre-wrap; font-size: 16px; margin-bottom: 20px;">${d.f_edu}</p>
+                <h3 style="color: #1e3a8a; font-size: 20px; font-weight: bold; margin-bottom: 10px;">Experience</h3>
+                <p style="white-space: pre-wrap; font-size: 16px;">${d.f_exp}</p>
+            `
+        },
+        'leave': {
+            title: 'Leave Application',
+            fields: [
+                { id: 'f_to', label: 'To (e.g., The Principal)', type: 'text' },
+                { id: 'f_sub', label: 'Subject', type: 'text' },
+                { id: 'f_details', label: 'Reason for leave', type: 'textarea' }
+            ],
+            render: (d) => `
+                <p style="font-size: 16px;"><strong>To,</strong><br>${d.f_to.replace(/\\n/g, '<br>')}</p><br>
+                <p style="font-size: 16px;"><strong>Subject: ${d.f_sub}</strong></p><br>
+                <p style="font-size: 16px;">Respected Sir/Madam,</p>
+                <p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">${d.f_details}</p><br><br>
+                <p style="font-size: 16px;">Yours faithfully,</p>
+            `
+        },
+        'police': {
+            title: 'Police Complaint',
+            fields: [
+                { id: 'f_station', label: 'Police Station Name', type: 'text' },
+                { id: 'f_sub', label: 'Subject', type: 'text' },
+                { id: 'f_details', label: 'Complaint Details', type: 'textarea' }
+            ],
+            render: (d) => `
+                <p style="font-size: 16px;"><strong>To,</strong><br>The Officer In-Charge,<br>${d.f_station}</p><br>
+                <p style="font-size: 16px;"><strong>Subject: ${d.f_sub}</strong></p><br>
+                <p style="font-size: 16px;">Respected Sir,</p>
+                <p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">${d.f_details}</p><br>
+                <p style="font-size: 16px;">Please register my complaint and take necessary action.</p><br><br>
+                <p style="font-size: 16px;">Signature:</p>
+            `
+        },
+        'legal': {
+            title: 'Legal Notice',
+            fields: [
+                { id: 'f_client', label: 'Client Name', type: 'text' },
+                { id: 'f_sub', label: 'Subject', type: 'text' },
+                { id: 'f_details', label: 'Notice Details', type: 'textarea' }
+            ],
+            render: (d) => `
+                <h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 24px;">LEGAL NOTICE</h2><br>
+                <p style="font-size: 16px;">Under instructions from my client <strong>${d.f_client}</strong>, I issue this notice:</p><br>
+                <p style="font-size: 16px;"><strong>Subject: ${d.f_sub}</strong></p><br>
+                <p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">${d.f_details}</p><br><br>
+                <p style="font-size: 16px; font-weight: bold;">Advocate Signature</p>
+            `
+        },
+        'tc': {
+            title: 'TC Application',
+            fields: [
+                { id: 'f_school', label: 'School Name', type: 'text' },
+                { id: 'f_name', label: 'Student Name', type: 'text' },
+                { id: 'f_reason', label: 'Reason for TC', type: 'textarea' }
+            ],
+            render: (d) => `
+                <p style="font-size: 16px;"><strong>To,</strong><br>The Principal,<br>${d.f_school}</p><br>
+                <p style="font-size: 16px;"><strong>Subject: Application for Transfer Certificate</strong></p><br>
+                <p style="font-size: 16px;">Respected Sir/Madam,</p>
+                <p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">I am ${d.f_name}. ${d.f_reason}</p><br>
+                <p style="font-size: 16px;">Kindly issue my TC.</p><br><br>
+                <p style="font-size: 16px;">Yours obediently,<br><strong>${d.f_name}</strong></p>
+            `
+        },
+        'exp': {
+            title: 'Experience Certificate',
+            fields: [
+                { id: 'f_company', label: 'Company Name', type: 'text' },
+                { id: 'f_name', label: 'Employee Name', type: 'text' },
+                { id: 'f_duration', label: 'Duration', type: 'text' }
+            ],
+            render: (d) => `
+                <h1 style="text-align: center; font-weight: bold; font-size: 28px;">${d.f_company}</h1><hr style="margin: 20px 0; border: 1px solid #000;">
+                <h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 22px;">TO WHOMSOEVER IT MAY CONCERN</h2><br>
+                <p style="font-size: 18px; line-height: 1.8;">This is to certify that <strong>${d.f_name}</strong> was employed with us for a duration of <strong>${d.f_duration}</strong>.</p>
+                <p style="font-size: 18px; line-height: 1.8;">We found their work excellent and highly professional.</p><br><br><br>
+                <p style="font-size: 18px; font-weight: bold;">Authorized Signatory</p>
+            `
+        },
+        'job': {
+            title: 'Job Application',
+            fields: [
+                { id: 'f_name', label: 'Your Name', type: 'text' },
+                { id: 'f_role', label: 'Position', type: 'text' },
+                { id: 'f_body', label: 'Cover Letter', type: 'textarea' }
+            ],
+            render: (d) => `
+                <p style="font-size: 16px;"><strong>${d.f_name}</strong></p><br>
+                <p style="font-size: 16px;"><strong>Subject: Application for ${d.f_role}</strong></p><br>
+                <p style="font-size: 16px;">Respected Hiring Manager,</p>
+                <p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">${d.f_body}</p><br><br>
+                <p style="font-size: 16px;">Sincerely,<br><strong>${d.f_name}</strong></p>
+            `
+        },
+        'affidavit': {
+            title: 'Affidavit Format',
+            fields: [
+                { id: 'f_name', label: 'Deponent Name', type: 'text' },
+                { id: 'f_statement', label: 'Statement', type: 'textarea' }
+            ],
+            render: (d) => `
+                <h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 24px;">AFFIDAVIT</h2><br>
+                <p style="font-size: 16px; line-height: 1.6;">I, <strong>${d.f_name}</strong>, do hereby solemnly affirm and declare as under:</p>
+                <p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.8;">${d.f_statement}</p><br>
+                <p style="font-size: 16px;">Verified that the above is true and correct.</p><br><br><br>
+                <p style="text-align: right; font-size: 16px; font-weight: bold;">DEPONENT</p>
+            `
+        },
+        'rent': {
+            title: 'Rent Agreement',
+            fields: [
+                { id: 'f_landlord', label: 'Landlord Name', type: 'text' },
+                { id: 'f_tenant', label: 'Tenant Name', type: 'text' },
+                { id: 'f_rent', label: 'Rent Amount', type: 'text' }
+            ],
+            render: (d) => `
+                <h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 24px;">RENT AGREEMENT</h2><br>
+                <p style="line-height: 1.8; font-size: 16px;">This Agreement is made between <strong>${d.f_landlord}</strong> (Landlord) and <strong>${d.f_tenant}</strong> (Tenant).</p>
+                <p style="line-height: 1.8; font-size: 16px;">The monthly rent is fixed at <strong>Rs. ${d.f_rent}</strong>.</p><br><br><br><br>
+                <table style="width: 100%; font-size: 16px;"><tr><td><strong>Landlord Signature</strong></td><td style="text-align: right;"><strong>Tenant Signature</strong></td></tr></table>
+            `
+        }
+    };
+
+    let currentTool = '';
+
+    function openTool(tool) {
+        currentTool = tool;
+        const config = toolConfigs[tool];
+        
+        document.getElementById('main-menu').classList.add('hidden');
+        document.getElementById('preview-section').classList.add('hidden');
+        document.getElementById('form-section').classList.remove('hidden');
+        document.getElementById('tool-title').innerText = config.title;
+
+        const inputsContainer = document.getElementById('dynamic-inputs');
+        inputsContainer.innerHTML = ''; 
+
+        config.fields.forEach(field => {
+            let inputHtml = '';
+            if(field.type === 'textarea') {
+                inputHtml = `<textarea id="${field.id}" placeholder="${field.label}" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 h-28"></textarea>`;
+            } else {
+                inputHtml = `<input type="text" id="${field.id}" placeholder="${field.label}" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900">`;
+            }
+            inputsContainer.innerHTML += `<div><label class="block text-sm font-bold mb-1">${field.label}</label>${inputHtml}</div>`;
+        });
+    }
+
+    function backToForm() {
+        document.getElementById('preview-section').classList.add('hidden');
+        document.getElementById('form-section').classList.remove('hidden');
+    }
+
+    function backToMenu() {
+        document.getElementById('main-menu').classList.remove('hidden');
+        document.getElementById('form-section').classList.add('hidden');
+        document.getElementById('preview-section').classList.add('hidden');
+    }
+
+    function previewDoc() {
+        const config = toolConfigs[currentTool];
+        let formData = {};
+        
+        config.fields.forEach(field => {
+            formData[field.id] = document.getElementById(field.id).value || '';
         });
 
-    } catch (e) {
-        alert("Error");
+        const finalHtml = config.render(formData);
+        
+        document.getElementById('document-preview').innerHTML = finalHtml;
+        document.getElementById('form-section').classList.add('hidden');
+        document.getElementById('preview-section').classList.remove('hidden');
     }
-}
-</script>
 
-</body>
-</html>
+    // Yahan PDF ki problem humesha ke liye theek ki gayi hai
+    function downloadPDF() {
+        try {
+            const config = toolConfigs[currentTool];
+            let formData = {};
+            
+            config.fields.forEach(field => {
+                formData[field.id] = document.getElementById(field.id).value || '';
+            });
+
+            c
