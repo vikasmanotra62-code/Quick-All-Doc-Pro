@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quick All Doc Pro | AI Document Generator</title>
     
+    <meta name="description" content="Quick All Doc Pro: Online Resume builder, Leave application, Police Complaint and Legal Document generator.">
+    <meta name="keywords" content="Resume Builder, Leave Application format, Police Complaint application, Legal Notice format, Marathi document maker, Hindi document generator, Quick All Doc Pro">
+    <meta name="google-site-verification" content="5_-qYd9IDpCL9oJlTMNBHlzwjm6uZVYLmWHr2A6rMFM" />
+    
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#ffffff">
     <link rel="apple-touch-icon" href="Icon.png">
@@ -96,12 +100,21 @@
             
             <div id="dynamic-inputs" class="space-y-4"></div>
             
-            <button onclick="generateDoc()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors mt-6">Generate Document</button>
+            <button onclick="previewDoc()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors mt-6">Preview Document</button>
         </div>
-    </div>
 
-    <div style="position: absolute; left: -9999px; top: 0;">
-        <div id="document-output" style="width: 800px; padding: 40px; background: white; color: black; font-family: Arial, sans-serif;"></div>
+        <div id="preview-section" class="hidden mt-10 bg-white p-4 md:p-8 rounded-xl border border-gray-200 shadow-md">
+            
+            <div class="flex justify-between items-center mb-6">
+                <button onclick="backToForm()" class="text-blue-600 font-bold text-sm hover:underline">← Edit Details</button>
+                <button onclick="downloadPDF()" class="bg-green-600 text-white px-6 py-3 rounded-lg font-bold text-md hover:bg-green-700 shadow-md">⬇ Download PDF</button>
+            </div>
+            
+            <div class="overflow-x-auto border border-gray-300 rounded bg-gray-200 p-2 md:p-8">
+                <div id="document-preview" style="width: 800px; max-width: none; background: white; padding: 40px; margin: 0 auto; color: black; font-family: Arial, sans-serif; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    </div>
+            </div>
+        </div>
     </div>
 
     <footer class="p-10 bg-white mt-20 border-t border-gray-200 text-center">
@@ -123,7 +136,7 @@
                 { id: 'f_edu', label: 'Education Details', type: 'textarea' },
                 { id: 'f_exp', label: 'Work Experience', type: 'textarea' }
             ],
-            render: (data) => `<h1>${data.f_name}</h1><p>${data.f_contact}</p><h3>Education</h3><p>${data.f_edu}</p><h3>Experience</h3><p>${data.f_exp}</p>`
+            render: (data) => `<h1 style="text-align: center; color: #1e3a8a; font-size: 32px; font-weight: bold; margin-bottom: 5px;">${data.f_name}</h1><p style="text-align: center; font-size: 16px;">${data.f_contact}</p><hr style="margin: 20px 0; border: 1px solid #ccc;"><h3 style="color: #1e3a8a; font-size: 20px; font-weight: bold; margin-bottom: 10px;">Education</h3><p style="white-space: pre-wrap; font-size: 16px; margin-bottom: 20px;">${data.f_edu}</p><h3 style="color: #1e3a8a; font-size: 20px; font-weight: bold; margin-bottom: 10px;">Experience</h3><p style="white-space: pre-wrap; font-size: 16px;">${data.f_exp}</p>`
         },
         'leave': {
             title: 'Leave Application',
@@ -132,7 +145,7 @@
                 { id: 'f_sub', label: 'Subject', type: 'text' },
                 { id: 'f_details', label: 'Reason for leave', type: 'textarea' }
             ],
-            render: (data) => `<p>To,<br>${data.f_to}</p><p>Subject: ${data.f_sub}</p><p>${data.f_details}</p>`
+            render: (data) => `<p style="font-size: 16px;"><strong>To,</strong><br>${data.f_to.replace(/\\n/g, '<br>')}</p><br><p style="font-size: 16px;"><strong>Subject: ${data.f_sub}</strong></p><br><p style="font-size: 16px;">Respected Sir/Madam,</p><p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">${data.f_details}</p><br><br><p style="font-size: 16px;">Yours faithfully,</p>`
         },
         'police': {
             title: 'Police Complaint',
@@ -141,7 +154,7 @@
                 { id: 'f_sub', label: 'Subject', type: 'text' },
                 { id: 'f_details', label: 'Complaint Details', type: 'textarea' }
             ],
-            render: (data) => `<p>To,<br>The Officer In-Charge,<br>${data.f_station}</p><p>Subject: ${data.f_sub}</p><p>${data.f_details}</p>`
+            render: (data) => `<p style="font-size: 16px;"><strong>To,</strong><br>The Officer In-Charge,<br>${data.f_station}</p><br><p style="font-size: 16px;"><strong>Subject: ${data.f_sub}</strong></p><br><p style="font-size: 16px;">Respected Sir,</p><p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">${data.f_details}</p><br><p style="font-size: 16px;">Please register my complaint and take necessary action.</p><br><br><p style="font-size: 16px;">Signature:</p>`
         },
         'legal': {
             title: 'Legal Notice',
@@ -150,7 +163,7 @@
                 { id: 'f_sub', label: 'Subject', type: 'text' },
                 { id: 'f_details', label: 'Notice Details', type: 'textarea' }
             ],
-            render: (data) => `<h2>LEGAL NOTICE</h2><p>Client: ${data.f_client}</p><p>Subject: ${data.f_sub}</p><p>${data.f_details}</p>`
+            render: (data) => `<h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 24px;">LEGAL NOTICE</h2><br><p style="font-size: 16px;">Under instructions from my client <strong>${data.f_client}</strong>, I issue this notice:</p><br><p style="font-size: 16px;"><strong>Subject: ${data.f_sub}</strong></p><br><p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">${data.f_details}</p><br><br><p style="font-size: 16px; font-weight: bold;">Advocate Signature</p>`
         },
         'tc': {
             title: 'TC Application',
@@ -159,7 +172,7 @@
                 { id: 'f_name', label: 'Student Name', type: 'text' },
                 { id: 'f_reason', label: 'Reason for TC', type: 'textarea' }
             ],
-            render: (data) => `<p>To,<br>The Principal,<br>${data.f_school}</p><p>Student: ${data.f_name}</p><p>Reason: ${data.f_reason}</p>`
+            render: (data) => `<p style="font-size: 16px;"><strong>To,</strong><br>The Principal,<br>${data.f_school}</p><br><p style="font-size: 16px;"><strong>Subject: Application for Transfer Certificate</strong></p><br><p style="font-size: 16px;">Respected Sir/Madam,</p><p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">I am ${data.f_name}. ${data.f_reason}</p><br><p style="font-size: 16px;">Kindly issue my TC.</p><br><br><p style="font-size: 16px;">Yours obediently,<br><strong>${data.f_name}</strong></p>`
         },
         'exp': {
             title: 'Experience Certificate',
@@ -168,7 +181,7 @@
                 { id: 'f_name', label: 'Employee Name', type: 'text' },
                 { id: 'f_duration', label: 'Duration', type: 'text' }
             ],
-            render: (data) => `<h2>${data.f_company}</h2><p>This certifies that ${data.f_name} worked with us for ${data.f_duration}.</p>`
+            render: (data) => `<h1 style="text-align: center; font-weight: bold; font-size: 28px;">${data.f_company}</h1><hr style="margin: 20px 0; border: 1px solid #000;"><h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 22px;">TO WHOMSOEVER IT MAY CONCERN</h2><br><p style="font-size: 18px; line-height: 1.8;">This is to certify that <strong>${data.f_name}</strong> was employed with us for a duration of <strong>${data.f_duration}</strong>.</p><p style="font-size: 18px; line-height: 1.8;">We found their work excellent and highly professional.</p><br><br><br><p style="font-size: 18px; font-weight: bold;">Authorized Signatory</p>`
         },
         'job': {
             title: 'Job Application',
@@ -177,7 +190,7 @@
                 { id: 'f_role', label: 'Position', type: 'text' },
                 { id: 'f_body', label: 'Cover Letter', type: 'textarea' }
             ],
-            render: (data) => `<p>${data.f_name}</p><p>Applying for: ${data.f_role}</p><p>${data.f_body}</p>`
+            render: (data) => `<p style="font-size: 16px;"><strong>${data.f_name}</strong></p><br><p style="font-size: 16px;"><strong>Subject: Application for ${data.f_role}</strong></p><br><p style="font-size: 16px;">Respected Hiring Manager,</p><p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.6;">${data.f_body}</p><br><br><p style="font-size: 16px;">Sincerely,<br><strong>${data.f_name}</strong></p>`
         },
         'affidavit': {
             title: 'Affidavit Format',
@@ -185,7 +198,7 @@
                 { id: 'f_name', label: 'Deponent Name', type: 'text' },
                 { id: 'f_statement', label: 'Statement', type: 'textarea' }
             ],
-            render: (data) => `<h2>AFFIDAVIT</h2><p>I, ${data.f_name}, declare: ${data.f_statement}</p>`
+            render: (data) => `<h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 24px;">AFFIDAVIT</h2><br><p style="font-size: 16px; line-height: 1.6;">I, <strong>${data.f_name}</strong>, do hereby solemnly affirm and declare as under:</p><p style="white-space: pre-wrap; font-size: 16px; margin-top: 10px; line-height: 1.8;">${data.f_statement}</p><br><p style="font-size: 16px;">Verified that the above is true and correct.</p><br><br><br><p style="text-align: right; font-size: 16px; font-weight: bold;">DEPONENT</p>`
         },
         'rent': {
             title: 'Rent Agreement',
@@ -194,68 +207,92 @@
                 { id: 'f_tenant', label: 'Tenant Name', type: 'text' },
                 { id: 'f_rent', label: 'Rent Amount', type: 'text' }
             ],
-            render: (data) => `<h2>RENT AGREEMENT</h2><p>Between ${data.f_landlord} and ${data.f_tenant}. Monthly Rent: Rs. ${data.f_rent}</p>`
+            render: (data) => `<h2 style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 24px;">RENT AGREEMENT</h2><br><p style="line-height: 1.8; font-size: 16px;">This Agreement is made between <strong>${data.f_landlord}</strong> (Landlord) and <strong>${data.f_tenant}</strong> (Tenant).</p><p style="line-height: 1.8; font-size: 16px;">The monthly rent is fixed at <strong>Rs. ${data.f_rent}</strong>.</p><br><br><br><br><table style="width: 100%; font-size: 16px;"><tr><td><strong>Landlord Signature</strong></td><td style="text-align: right;"><strong>Tenant Signature</strong></td></tr></table>`
         }
     };
 
     let currentTool = '';
 
     function openTool(tool) {
-        try {
-            currentTool = tool;
-            const config = toolConfigs[tool];
-            
-            document.getElementById('main-menu').classList.add('hidden');
-            document.getElementById('form-section').classList.remove('hidden');
-            document.getElementById('tool-title').innerText = config.title;
+        currentTool = tool;
+        const config = toolConfigs[tool];
+        
+        document.getElementById('main-menu').classList.add('hidden');
+        document.getElementById('preview-section').classList.add('hidden');
+        document.getElementById('form-section').classList.remove('hidden');
+        document.getElementById('tool-title').innerText = config.title;
 
-            const inputsContainer = document.getElementById('dynamic-inputs');
-            inputsContainer.innerHTML = ''; 
+        const inputsContainer = document.getElementById('dynamic-inputs');
+        inputsContainer.innerHTML = ''; 
 
-            config.fields.forEach(field => {
-                let inputElement = '';
-                if(field.type === 'textarea') {
-                    inputElement = `<textarea id="${field.id}" placeholder="${field.label}" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 h-28"></textarea>`;
-                } else {
-                    inputElement = `<input type="text" id="${field.id}" placeholder="${field.label}" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900">`;
-                }
-                inputsContainer.innerHTML += `<div><label class="block text-sm font-bold mb-1">${field.label}</label>${inputElement}</div>`;
-            });
-        } catch (err) {
-            alert("Error in App: " + err.message);
-        }
+        config.fields.forEach(field => {
+            let inputElement = '';
+            if(field.type === 'textarea') {
+                inputElement = `<textarea id="${field.id}" placeholder="${field.label}" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 h-28"></textarea>`;
+            } else {
+                inputElement = `<input type="text" id="${field.id}" placeholder="${field.label}" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900">`;
+            }
+            inputsContainer.innerHTML += `<div><label class="block text-sm font-bold mb-1">${field.label}</label>${inputElement}</div>`;
+        });
+    }
+
+    function backToForm() {
+        document.getElementById('preview-section').classList.add('hidden');
+        document.getElementById('form-section').classList.remove('hidden');
     }
 
     function backToMenu() {
         document.getElementById('main-menu').classList.remove('hidden');
         document.getElementById('form-section').classList.add('hidden');
+        document.getElementById('preview-section').classList.add('hidden');
     }
 
-    function generateDoc() {
+    function previewDoc() {
+        const config = toolConfigs[currentTool];
+        let formData = {};
+        
+        config.fields.forEach(field => {
+            formData[field.id] = document.getElementById(field.id).value || '';
+        });
+
+        const finalHtml = config.render(formData);
+        
+        // Preview me data set kar rahe hain
+        document.getElementById('document-preview').innerHTML = finalHtml;
+        
+        // Screen change kar rahe hain
+        document.getElementById('form-section').classList.add('hidden');
+        document.getElementById('preview-section').classList.remove('hidden');
+    }
+
+    function downloadPDF() {
         try {
             const config = toolConfigs[currentTool];
             let formData = {};
             
+            // Wapas data collect karna (ताकि PDF fresh data le)
             config.fields.forEach(field => {
                 formData[field.id] = document.getElementById(field.id).value || '';
             });
 
-            const finalHtml = config.render(formData);
-            const outputElement = document.getElementById('document-output');
-            outputElement.innerHTML = finalHtml;
+            // YAHI MASTER FIX HAI: Direct String se PDF banana, screen se nahi!
+            const innerContent = config.render(formData);
+            const fullHtmlString = `<div style="width: 800px; padding: 40px; font-family: Arial, sans-serif; background: white; color: black; box-sizing: border-box;">${innerContent}</div>`;
+            
+            const pdfOptions = {
+                margin: 0.5,
+                filename: config.title.replace(/\s+/g, '_') + '.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, windowWidth: 800 }, // Forces desktop width
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
 
-            html2pdf().set({ margin: 1, filename: config.title + '.pdf' }).from(outputElement).save();
-        } catch (err) {
-            alert("PDF Error: " + err.message);
-        }
-    }
+            const btn = document.querySelector('#preview-section button.bg-green-600');
+            const originalText = btn.innerText;
+            btn.innerText = "Downloading...";
+            btn.disabled = true;
 
-    function updateLanguage() {
-        // Simple language toggle logic
-        const lang = document.getElementById('langSelect').value;
-        const btnText = lang === 'hi' ? 'टूल खोलें' : (lang === 'mr' ? 'टूल उघडा' : 'Open Tool');
-        document.querySelectorAll('#main-menu button').forEach(btn => btn.innerText = btnText);
-    }
-    </script>
-</body>
-</html>
+            // Direct naya element background me pass kar rahe hain
+            html2pdf().set(pdfOptions).from(fullHtmlString).save().then(() => {
+                btn.innerText = originalText;
+   
